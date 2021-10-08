@@ -10,9 +10,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
-        val student =getStudent()
-        binding.nameText.text = student.name
-        binding.emailText.text = student.email
+        binding.student = getStudent()
     }
 
     private fun getStudent():Student{
