@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BindingDemo2</string>
+    <string name="btn_stop_txt">Stop</string>
+    <string name="btn_start_txt">Start</string>
 </resources>
