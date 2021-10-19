@@ -16,7 +16,13 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
+        showingTotalSumSetup()
+
+    }
+
+    private fun showingTotalSumSetup() {
         binding.apply {
+            totalSum.text = viewModel.showTotalSum().toString()
             addButton.setOnClickListener {
                 val number: Int = Integer.parseInt(numberInput.text.toString())
                 viewModel.sumNumberInput(number)
