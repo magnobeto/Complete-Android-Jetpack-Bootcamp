@@ -1,20 +1,19 @@
 package com.anushka.livedatademo
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainActivityViewModel(startingValue: Int): ViewModel() {
     
-    private var totalSum: Int = 0
+    private var totalSumLV = MutableLiveData<Int>()
+    val totalSum: LiveData<Int> = totalSumLV
 
     init {
-        totalSum = startingValue
-    }
-    
-    fun sumNumberInput(number: Int) {
-        totalSum += number
+        totalSumLV.value = startingValue
     }
 
-    fun showTotalSum(): Int {
-        return totalSum
+    fun sumNumberInput(number: Int) {
+        totalSumLV.value = totalSumLV.value?.plus(number)
     }
 }

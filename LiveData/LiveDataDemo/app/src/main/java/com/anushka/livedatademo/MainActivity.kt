@@ -3,6 +3,7 @@ package com.anushka.livedatademo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.anushka.livedatademo.databinding.ActivityMainBinding
 
@@ -18,19 +19,22 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainActivityViewModel::class.java)
 
-        showingTotalSumSetup()
-
+        setOnClickListener()
+        observe()
     }
 
-    private fun showingTotalSumSetup() {
+    private fun setOnClickListener() {
         binding.apply {
-            totalSum.text = viewModel.showTotalSum().toString()
             addButton.setOnClickListener {
-                val number: Int = Integer.parseInt(numberInput.text.toString())
-                viewModel.sumNumberInput(number)
-                totalSum.text = viewModel.showTotalSum().toString()
+                viewModel.sumNumberInput(numberInput.text.toString().toInt())
                 numberInput.text.clear()
             }
         }
+    }
+
+    private fun observe() {
+        viewModel.totalSum.observe(this, Observer { totalSum ->
+            binding.totalSum.text = totalSum.toString()
+        })
     }
 }
