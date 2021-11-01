@@ -1,10 +1,10 @@
-package com.anushka.viewmodeldemo2
+package com.anushka.viewmodeldemo3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.anushka.viewmodeldemo2.databinding.ActivityMainBinding
+import com.anushka.viewmodeldemo3.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
