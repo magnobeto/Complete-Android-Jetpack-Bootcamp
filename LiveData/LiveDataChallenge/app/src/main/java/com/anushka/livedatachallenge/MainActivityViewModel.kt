@@ -1,15 +1,14 @@
 package com.anushka.livedatachallenge
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainActivityViewModel : ViewModel() {
-    private var count = 0
+    private var countLV = MutableLiveData<Int>(0)
+    val count: LiveData<Int> = countLV
 
-    fun getCurrentCount():Int{
-        return count
-    }
-
-    fun getUpdatedCount():Int{
-        return ++count
+    fun updateCount() {
+        countLV.value = countLV.value?.plus(1)
     }
 }

@@ -3,9 +3,9 @@ package com.anushka.livedatachallenge
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.anushka.viewmodeldemo1.R
-import com.anushka.viewmodeldemo1.databinding.ActivityMainBinding
+import com.anushka.livedatachallenge.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -14,9 +14,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-        binding.countText.text = viewModel.getCurrentCount().toString()
+
+        setOnClickListener()
+        observe()
+    }
+
+    private fun setOnClickListener() {
         binding.button.setOnClickListener {
-            binding.countText.text = viewModel.getUpdatedCount().toString()
+            viewModel.updateCount()
         }
+    }
+
+    private fun observe() {
+        viewModel.count.observe(this, Observer { updatedCount ->
+            binding.countText.text = updatedCount.toString()
+        })
     }
 }
