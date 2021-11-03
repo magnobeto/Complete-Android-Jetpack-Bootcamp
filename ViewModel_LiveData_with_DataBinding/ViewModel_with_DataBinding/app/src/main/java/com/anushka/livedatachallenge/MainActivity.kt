@@ -15,14 +15,8 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
-        setOnClickListener()
+        binding.viewModel = viewModel
         observe()
-    }
-
-    private fun setOnClickListener() {
-        binding.button.setOnClickListener {
-            viewModel.updateCount()
-        }
     }
 
     private fun observe() {
