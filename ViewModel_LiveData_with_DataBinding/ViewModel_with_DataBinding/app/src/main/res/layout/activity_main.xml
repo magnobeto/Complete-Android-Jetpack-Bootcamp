@@ -6,13 +6,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.anushka.livedatachallenge.MainActivityViewModel" />
+            type="com.anushka.viewmodelwithdatabinding.MainActivityViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.anushka.livedatachallenge.MainActivity">
+    tools:context="com.anushka.viewmodelwithdatabinding.MainActivity">
 
     <TextView
         android:id="@+id/count_text"

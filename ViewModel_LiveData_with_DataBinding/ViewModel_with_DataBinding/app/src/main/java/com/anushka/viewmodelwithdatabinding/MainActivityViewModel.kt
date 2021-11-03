@@ -1,4 +1,4 @@
-package com.anushka.livedatachallenge
+package com.anushka.viewmodelwithdatabinding
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
