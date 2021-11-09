@@ -24,7 +24,7 @@
             android:textSize="40sp"/>
 
         <EditText
-            android:text="@{viewModel.userName}"
+            android:text="@={viewModel.userName}"
             android:inputType="textPersonName"
             android:layout_gravity="center"
             android:layout_width="wrap_content"

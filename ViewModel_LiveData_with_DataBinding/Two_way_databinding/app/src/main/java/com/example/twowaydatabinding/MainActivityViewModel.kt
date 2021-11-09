@@ -1,15 +1,13 @@
 package com.example.twowaydatabinding
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainActivityViewModel : ViewModel() {
 
-    private var userNameLV = MutableLiveData<String>()
-    var userName : LiveData<String> = userNameLV
+    val userName = MutableLiveData<String>()
 
     init {
-        userNameLV.value = "Frank"
+        userName.value = "Frank"
     }
 }
