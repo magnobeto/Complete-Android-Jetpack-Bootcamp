@@ -17,5 +17,6 @@ class MainActivityViewModel(startingValue: Int) : ViewModel() {
     fun sumNumberInput() {
         val inputNumber = inputText.value.toString().toInt()
         totalSumLV.value = totalSumLV.value?.plus(inputNumber)
+        inputText.value = ""
     }
 }
