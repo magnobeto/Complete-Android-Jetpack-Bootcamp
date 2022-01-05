@@ -26,6 +26,15 @@ class EmailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_email, container, false)
+        binding.submitButton.setOnClickListener {
+            if (!TextUtils.isEmpty(binding.emailEditText.text.toString())) {
+                arguments?.putString("email_user", binding.emailEditText.text.toString())
+                val bundle = arguments
+                it.findNavController().navigate(R.id.action_emailFragment_to_welcomeFragment, bundle)
+            } else {
+                Toast.makeText(activity, "Please insert your email", Toast.LENGTH_LONG).show()
+            }
+        }
         return binding.root
     }
 }
