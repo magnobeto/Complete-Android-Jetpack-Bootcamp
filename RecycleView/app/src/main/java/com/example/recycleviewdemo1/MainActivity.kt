@@ -14,5 +14,6 @@ class MainActivity : AppCompatActivity() {
 
         my_recycle_view.setBackgroundColor(Color.GREEN)
         my_recycle_view.layoutManager = LinearLayoutManager(this)
+        my_recycle_view.adapter = MyRecyclerViewAdapter()
     }
 }

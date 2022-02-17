@@ -1,20 +1,24 @@
 package com.example.recycleviewdemo1
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.list_item.view.*
 
 class MyRecyclerViewAdapter: RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        TODO("Not yet implemented")
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val listItem = layoutInflater.inflate(R.layout.list_item, parent, false)
+        return MyViewHolder(listItem)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.view.name_item_txt.text = "Hello guy $position"
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return 5
     }
 }
 
