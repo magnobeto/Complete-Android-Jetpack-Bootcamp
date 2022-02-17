@@ -9,7 +9,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val fruitList = listOf("Mango", "Apple", "Banana", "Guava", "Lemon", "Pear", "Orange")
+    private val fruitList = listOf(
+        Fruit("Mango", "Tom"),
+        Fruit("Apple", "Joe"),
+        Fruit("Banana", "Mark"),
+        Fruit("Guava", "Mike"),
+        Fruit("Lemon", "Mike" ),
+        Fruit("Pear", "Frang"),
+        Fruit("Orange", "Joe"))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

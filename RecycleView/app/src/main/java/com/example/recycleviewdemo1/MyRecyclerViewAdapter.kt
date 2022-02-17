@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.list_item.view.*
 
-class MyRecyclerViewAdapter(private val fruitList: List<String>): RecyclerView.Adapter<MyViewHolder>() {
+class MyRecyclerViewAdapter(private val fruitList: List<Fruit>): RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val listItem = layoutInflater.inflate(R.layout.list_item, parent, false)
@@ -15,7 +15,7 @@ class MyRecyclerViewAdapter(private val fruitList: List<String>): RecyclerView.A
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val fruit = fruitList[position]
-        holder.view.name_item_txt.text = fruit
+        holder.view.name_item_txt.text = fruit.name
     }
 
     override fun getItemCount(): Int {
