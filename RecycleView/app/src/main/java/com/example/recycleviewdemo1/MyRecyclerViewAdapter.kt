@@ -14,8 +14,7 @@ class MyRecyclerViewAdapter(private val fruitList: List<Fruit>): RecyclerView.Ad
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val fruit = fruitList[position]
-        holder.view.name_item_txt.text = fruit.name
+        holder.bind(fruitList[position])
     }
 
     override fun getItemCount(): Int {
@@ -23,6 +22,9 @@ class MyRecyclerViewAdapter(private val fruitList: List<Fruit>): RecyclerView.Ad
     }
 }
 
-class MyViewHolder(val view : View): RecyclerView.ViewHolder(view) {
+class MyViewHolder(private val view : View): RecyclerView.ViewHolder(view) {
 
+    fun bind (fruit: Fruit) {
+        view.name_item_txt.text = fruit.name
+    }
 }
