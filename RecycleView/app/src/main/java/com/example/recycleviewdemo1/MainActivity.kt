@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -14,9 +15,10 @@ class MainActivity : AppCompatActivity() {
         Fruit("Apple", "Joe"),
         Fruit("Banana", "Mark"),
         Fruit("Guava", "Mike"),
-        Fruit("Lemon", "Mike" ),
+        Fruit("Lemon", "Mike"),
         Fruit("Pear", "Frang"),
-        Fruit("Orange", "Joe"))
+        Fruit("Orange", "Joe")
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +26,15 @@ class MainActivity : AppCompatActivity() {
 
         my_recycle_view.setBackgroundColor(Color.GREEN)
         my_recycle_view.layoutManager = LinearLayoutManager(this)
-        my_recycle_view.adapter = MyRecyclerViewAdapter(fruitList)
+        my_recycle_view.adapter = MyRecyclerViewAdapter(fruitList) { selectFruitItem: Fruit ->
+            listItemClicked(
+                selectFruitItem
+            )
+        }
+    }
+
+    private fun listItemClicked(fruit: Fruit) {
+        Toast.makeText(this@MainActivity, "Suplier name is: ${fruit.supplier}", Toast.LENGTH_SHORT)
+            .show()
     }
 }
