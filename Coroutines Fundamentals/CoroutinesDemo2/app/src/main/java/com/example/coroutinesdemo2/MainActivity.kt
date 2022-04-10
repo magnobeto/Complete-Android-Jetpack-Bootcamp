@@ -3,8 +3,6 @@ package com.example.coroutinesdemo2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.coroutinesdemo1.R
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +11,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        CoroutineScope(Dispatchers.IO).launch {
+            Log.i("Mytag", "Calculation started...")
+            val stock1 = getStock1()
+            val stock2 = getStock2()
+            val total = stock1 + stock2
+            Log.i("Mytag", "Total is: $total")
+        }
     }
 
     private suspend fun getStock1(): Int {
