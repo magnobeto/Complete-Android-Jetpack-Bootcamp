@@ -3,6 +3,7 @@ package com.example.coroutinesdemo2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
@@ -12,12 +13,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        CoroutineScope(Dispatchers.IO).launch {
+        CoroutineScope(Dispatchers.Main).launch {
             Log.i("Mytag", "Calculation started...")
-            val stock1 = async {getStock1()}
-            val stock2 = async {getStock2()}
+            val stock1 = async(Dispatchers.IO) {getStock1()}
+            val stock2 = async(Dispatchers.IO) {getStock2()}
             val total = stock1.await() + stock2.await()
-            Log.i("Mytag", "Total is: $total")
+            Toast.makeText(this@MainActivity, "Total is: $total", Toast.LENGTH_LONG).show()
         }
     }
 
