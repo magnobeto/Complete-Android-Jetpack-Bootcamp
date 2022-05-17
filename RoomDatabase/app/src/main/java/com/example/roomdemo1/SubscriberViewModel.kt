@@ -2,14 +2,16 @@ package com.example.roomdemo1
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.example.roomdemo1.db.Subscriber
 import com.example.roomdemo1.db.SubscriberRepository
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class SubscriberViewModel(private val repository: SubscriberRepository) : ViewModel() {
 
-    val subscribers = repository.subscribers
+    val subscribers = getSaveSubscribers()
 
     val inputName = MutableLiveData<String?>()
     val inputEmail = MutableLiveData<String?>()
@@ -24,7 +26,7 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
     fun saveOrUpdate() {
         val name = inputName.value!!
         val email = inputEmail.value!!
-        insert(Subscriber(0, name, email))
+        insert(Subscriber(DEFAULT_ID, name, email))
         inputName.value = null
         inputEmail.value = null
     }
@@ -53,8 +55,15 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
             repository.deleteAll()
         }
 
+    private fun getSaveSubscribers() = liveData {
+        repository.subscribers.collect {
+            emit(it)
+        }
+    }
+
     companion object {
         private const val SAVE = "Save"
         private const val CLEAR_ALL = "Clear All"
+        private const val DEFAULT_ID = 0
     }
 }
