@@ -1,47 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:elevation="10dp"
-        android:focusable="true"
-        app:cardBackgroundColor="@color/design_default_color_primary"
-        app:cardCornerRadius="10dp">
+        android:layout_margin="10dp"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:clickable="true"
+            android:elevation="10dp"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/design_default_color_primary"
+            app:cardCornerRadius="10dp">
 
-            <TextView
-                android:id="@+id/name_text_view"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="TextView"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/email_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="TextView"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/name_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="TextView"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/email_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="TextView"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
-    </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
-
-</LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>
