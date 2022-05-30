@@ -12,6 +12,8 @@ import kotlinx.coroutines.launch
 class SubscriberViewModel(private val repository: SubscriberRepository) : ViewModel() {
 
     val subscribers = getSaveSubscribers()
+    private var isUpdateOrDelete = false
+    private lateinit var subscriberToUpdateOrDelete: Subscriber
 
     val inputName = MutableLiveData<String?>()
     val inputEmail = MutableLiveData<String?>()
@@ -21,6 +23,15 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
     init {
         saveOrUpdateBtnTxt.value = SAVE
         clearAllOrDeleteBtnTxt.value = CLEAR_ALL
+    }
+
+    fun initUpdateAndDelete(subscriber: Subscriber) {
+        inputName.value = subscriber.name
+        inputEmail.value = subscriber.email
+        isUpdateOrDelete = true
+        subscriberToUpdateOrDelete = subscriber
+        saveOrUpdateBtnTxt.value = UPDATE
+        clearAllOrDeleteBtnTxt.value = DELETE
     }
 
     fun saveOrUpdate() {
@@ -63,6 +74,8 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
 
     companion object {
         private const val SAVE = "Save"
+        private const val UPDATE = "Update"
+        private const val DELETE = "Delete"
         private const val CLEAR_ALL = "Clear All"
         private const val DEFAULT_ID = 0
     }
