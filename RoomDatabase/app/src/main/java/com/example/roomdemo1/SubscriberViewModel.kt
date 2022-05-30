@@ -35,15 +35,25 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
     }
 
     fun saveOrUpdate() {
-        val name = inputName.value!!
-        val email = inputEmail.value!!
-        insert(Subscriber(DEFAULT_ID, name, email))
-        inputName.value = null
-        inputEmail.value = null
+        if (isUpdateOrDelete) {
+            subscriberToUpdateOrDelete.name = inputName.value!!
+            subscriberToUpdateOrDelete.email = inputEmail.value!!
+            update(subscriberToUpdateOrDelete)
+        } else {
+            val name = inputName.value!!
+            val email = inputEmail.value!!
+            insert(Subscriber(DEFAULT_ID, name, email))
+            inputName.value = null
+            inputEmail.value = null
+        }
     }
 
     fun clearAllOrDelete() {
-        clearAll()
+        if (isUpdateOrDelete) {
+            delete(subscriberToUpdateOrDelete)
+        } else {
+            clearAll()
+        }
     }
 
     fun insert(subscriber: Subscriber) =
@@ -54,11 +64,21 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
     fun update(subscriber: Subscriber) =
         viewModelScope.launch {
             repository.update(subscriber)
+            inputName.value = null
+            inputEmail.value = null
+            isUpdateOrDelete = false
+            saveOrUpdateBtnTxt.value = SAVE
+            clearAllOrDeleteBtnTxt.value = CLEAR_ALL
         }
 
     fun delete(subscriber: Subscriber) =
         viewModelScope.launch {
             repository.delete(subscriber)
+            inputName.value = null
+            inputEmail.value = null
+            isUpdateOrDelete = false
+            saveOrUpdateBtnTxt.value = SAVE
+            clearAllOrDeleteBtnTxt.value = CLEAR_ALL
         }
 
     private fun clearAll() =
