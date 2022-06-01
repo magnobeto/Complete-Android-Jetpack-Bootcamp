@@ -1,5 +1,6 @@
 package com.example.roomdemo1
 
+import android.util.Patterns
 import androidx.lifecycle.*
 import com.example.roomdemo1.db.Subscriber
 import com.example.roomdemo1.db.SubscriberRepository
@@ -36,16 +37,24 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
     }
 
     fun saveOrUpdate() {
-        if (isUpdateOrDelete) {
-            subscriberToUpdateOrDelete.name = inputName.value!!
-            subscriberToUpdateOrDelete.email = inputEmail.value!!
-            update(subscriberToUpdateOrDelete)
+        if (inputName.value == null) {
+            statusMessage.value = Event(INPUT_NAME_VALIDATION_ERROR_MESSAGE)
+        } else if (inputEmail.value == null) {
+            statusMessage.value = Event(INPUT_EMAIL_VALIDATION_ERROR_MESSAGE)
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(inputEmail.value!!).matches()) {
+            statusMessage.value = Event(INPUT_EMAIL_VALIDATION_PATTERN_ERROR_MESSAGE)
         } else {
-            val name = inputName.value!!
-            val email = inputEmail.value!!
-            insert(Subscriber(DEFAULT_ID, name, email))
-            inputName.value = null
-            inputEmail.value = null
+            if (isUpdateOrDelete) {
+                subscriberToUpdateOrDelete.name = inputName.value!!
+                subscriberToUpdateOrDelete.email = inputEmail.value!!
+                update(subscriberToUpdateOrDelete)
+            } else {
+                val name = inputName.value!!
+                val email = inputEmail.value!!
+                insert(Subscriber(DEFAULT_ID, name, email))
+                inputName.value = null
+                inputEmail.value = null
+            }
         }
     }
 
@@ -115,6 +124,7 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
     }
 
     companion object {
+        private const val DEFAULT_ID = 0
         private const val SAVE = "Save"
         private const val UPDATE = "Update"
         private const val DELETE = "Delete"
@@ -123,7 +133,9 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
         private const val UPDATED_SUCCESSFULLY_MESSAGE = "Subscriber Updated Successfully"
         private const val DELETED_SUCCESSFULLY_MESSAGE = "Subscriber Deleted Successfully"
         private const val CLEAR_ALL_SUCCESSFULLY_MESSAGE = "All Subscribers Deleted Successfully"
-        private const val DEFAULT_ID = 0
+        private const val INPUT_NAME_VALIDATION_ERROR_MESSAGE = "Please enter subscriber's name"
+        private const val INPUT_EMAIL_VALIDATION_ERROR_MESSAGE = "Please enter subscriber's email"
+        private const val INPUT_EMAIL_VALIDATION_PATTERN_ERROR_MESSAGE = "Please enter a correct email address"
         private const val ERROR_MESSAGE = "Error ocurred"
     }
 }
