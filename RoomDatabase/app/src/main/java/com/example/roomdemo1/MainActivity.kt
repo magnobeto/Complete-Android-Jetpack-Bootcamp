@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         initRecycerView()
 
         subscriberViewModel.message.observe(this) {
-            it.getContentIfNotHandled()?.let {
-                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            it.getContentIfNotHandled()?.let { message ->
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
         }
     }
