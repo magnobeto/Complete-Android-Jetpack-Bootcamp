@@ -1,6 +1,6 @@
 package com.example.retrofitdemo
 
-data class AlbumItem(
+data class AlbumsItem(
     val id: Int,
     val title: String,
     val userId: Int
