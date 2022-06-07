@@ -3,6 +3,7 @@ package com.example.retrofitdemo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.example.retrofitdemo.databinding.ActivityMainBinding
@@ -19,6 +20,17 @@ class MainActivity : AppCompatActivity() {
         val retrofitService = RetrofitInstance
             .getRetrofitInstance()
             .create(AlbumService::class.java)
+
+        val pathResponse: LiveData<Response<AlbumsItem>> = liveData {
+            val response = retrofitService.getAlbum(3)
+            emit(response)
+        }
+        pathResponse.observe(this) {
+            val title = it.body()?.title
+            Toast.makeText(applicationContext, title, Toast.LENGTH_SHORT).show()
+        }
+
+
         val responseLiveDate: LiveData<Response<Albums>> = liveData {
             val response = retrofitService.getSortedAlbums(3)
             emit(response)
