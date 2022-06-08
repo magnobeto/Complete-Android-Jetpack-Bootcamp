@@ -1,5 +1,6 @@
 package com.example.notiricationdemo
 
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.ClipDescription
@@ -7,6 +8,7 @@ import android.content.Context
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.app.NotificationCompat
 import com.example.notiricationdemo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +30,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayNotification() {
-
+        val notificatioId = 45
+        val notification = NotificationCompat.Builder(this, channelID)
+            .setContentTitle("DemoTitle")
+            .setContentText("This is a demo notification")
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setAutoCancel(true)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .build()
+        notificationManager?.notify(notificatioId, notification)
     }
 
     private fun createNotificationChannel(id: String, name: String, channelDescription: String) {
