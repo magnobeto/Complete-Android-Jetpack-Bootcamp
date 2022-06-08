@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             .create(AlbumService::class.java)
 
         getRequestWithQueryParameters()
-        getRequestWithPathParameters()
+//        getRequestWithPathParameters()
     }
 
     private fun getRequestWithQueryParameters() {
