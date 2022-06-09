@@ -1,10 +1,10 @@
 package com.example.notiricationdemo
 
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.content.ClipDescription
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -31,12 +31,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayNotification() {
         val notificatioId = 45
+        val tapResultIntent = Intent(this, SecondActivity::class.java)
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(
+            this,
+            0,
+            tapResultIntent,
+            setupPendingIntentFlag()
+        )
         val notification = NotificationCompat.Builder(this, channelID)
             .setContentTitle("DemoTitle")
             .setContentText("This is a demo notification")
             .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setAutoCancel(true)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setContentIntent(pendingIntent)
             .build()
         notificationManager?.notify(notificatioId, notification)
     }
@@ -48,6 +56,14 @@ class MainActivity : AppCompatActivity() {
                 it.description = channelDescription
             }
             notificationManager?.createNotificationChannel(channel)
+        }
+    }
+
+    private fun setupPendingIntentFlag(): Int {
+        return if (Build.VERSION.SDK_INT >= 31) {
+            PendingIntent.FLAG_IMMUTABLE
+        } else {
+            PendingIntent.FLAG_UPDATE_CURRENT
         }
     }
 }
