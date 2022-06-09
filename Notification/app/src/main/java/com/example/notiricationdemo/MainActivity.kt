@@ -9,12 +9,15 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.NotificationCompat
+import androidx.core.app.RemoteInput
 import com.example.notiricationdemo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val channelID = "com.example.notiricationdemo.channel1"
     private var notificationManager: NotificationManager? = null
+    private val KEY_REPLY = "key_reply"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -36,8 +39,21 @@ class MainActivity : AppCompatActivity() {
             this,
             0,
             tapResultIntent,
-            setupPendingIntentFlag()
+            setupPendingIntentFlag(true)
         )
+
+        //reply action
+        val remoteInput: RemoteInput = RemoteInput.Builder(KEY_REPLY).run {
+            setLabel("Insert your name here")
+            build()
+        }
+
+        val replyAction: NotificationCompat.Action = NotificationCompat.Action.Builder(
+            0,
+            "REPLY",
+            pendingIntent
+        ).addRemoteInput(remoteInput)
+            .build()
 
         // action button 1
         val intent2 = Intent(this, DetailsActivity::class.java)
@@ -60,15 +76,16 @@ class MainActivity : AppCompatActivity() {
         )
         val action3: NotificationCompat.Action =
             NotificationCompat.Action.Builder(0, "Settings", pendingIntent3).build()
+
         val notification = NotificationCompat.Builder(this, channelID)
             .setContentTitle("DemoTitle")
             .setContentText("This is a demo notification")
             .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setAutoCancel(true)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
-            .setContentIntent(pendingIntent)
             .addAction(action2)
             .addAction(action3)
+            .addAction(replyAction)
             .build()
         notificationManager?.notify(notificatioId, notification)
     }
@@ -83,11 +100,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupPendingIntentFlag(): Int {
-        return if (Build.VERSION.SDK_INT >= 31) {
+    private fun setupPendingIntentFlag(isReplyOption: Boolean = false): Int {
+        return if (Build.VERSION.SDK_INT >= 31 && !isReplyOption) {
             PendingIntent.FLAG_IMMUTABLE
         } else {
-            PendingIntent.FLAG_UPDATE_CURRENT
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
         }
     }
 }
