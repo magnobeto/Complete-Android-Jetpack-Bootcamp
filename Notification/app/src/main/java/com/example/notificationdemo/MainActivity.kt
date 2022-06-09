@@ -1,4 +1,4 @@
-package com.example.notiricationdemo
+package com.example.notificationdemo
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.NotificationCompat
 import androidx.core.app.RemoteInput
-import com.example.notiricationdemo.databinding.ActivityMainBinding
+import com.example.notificationdemo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
             .setContentText("This is a demo notification")
             .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setAutoCancel(true)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .addAction(action2)
             .addAction(action3)
             .addAction(replyAction)

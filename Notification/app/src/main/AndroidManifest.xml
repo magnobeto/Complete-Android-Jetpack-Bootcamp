@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.notiricationdemo">
+    package="com.example.notificationdemo">
 
     <application
         android:allowBackup="true"
@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NotiricationDemo">
         <activity
-            android:name=".SettingsActivity"
+            android:name="com.example.notificationdemo.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailsActivity"
+            android:name="com.example.notificationdemo.DetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".SecondActivity"
+            android:name="com.example.notificationdemo.SecondActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.notificationdemo.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
