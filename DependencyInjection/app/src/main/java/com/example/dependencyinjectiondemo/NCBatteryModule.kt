@@ -1,12 +1,10 @@
 package com.example.dependencyinjectiondemo
 
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 
 @Module
-class NCBatteryModule {
-    @Provides
-    fun providesNCBattery(nickelCadmiumBattery: NickelCadmiumBattery): Battery {
-        return nickelCadmiumBattery
-    }
+abstract class NCBatteryModule {
+    @Binds
+    abstract fun bindsCBattery(nickelCadmiumBattery: NickelCadmiumBattery): Battery
 }
