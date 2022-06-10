@@ -91,4 +91,8 @@ dependencies {
     androidTestImplementation "androidx.work:work-testing:$work_version"
     // optional - Multiprocess support
     implementation "androidx.work:work-multiprocess:$work_version"
+
+    //Dagger2
+    implementation 'com.google.dagger:dagger:2.42'
+    kapt 'com.google.dagger:dagger-compiler:2.42'
 }
