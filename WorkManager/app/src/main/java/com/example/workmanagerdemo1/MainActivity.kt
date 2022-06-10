@@ -2,7 +2,9 @@ package com.example.workmanagerdemo1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.work.*
+import com.example.workmanagerdemo1.UploadWorker.Companion.KEY_WORKER
 import com.example.workmanagerdemo1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -42,6 +44,11 @@ class MainActivity : AppCompatActivity() {
         workManager.enqueue(uploadRequest)
         workManager.getWorkInfoByIdLiveData(uploadRequest.id).observe(this) {
             binding.textView.text = it.state.name
+            if (it.state.isFinished) {
+                val data = it.outputData
+                val message = data.getString(KEY_WORKER)
+                Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
