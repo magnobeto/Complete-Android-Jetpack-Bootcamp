@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val simCard = SIMCard().apply {
-            setServiceProvider(ServiceProvider())
+            serviceProvider = ServiceProvider()
         }
 
         val smartPhone = SmartPhone(
