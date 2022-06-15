@@ -1,6 +1,6 @@
-package com.example.tmdbclient.data.domain.usecase
+package com.example.tmdbclient.domain.usecase
 
-import com.example.tmdbclient.data.domain.repository.MovieRepository
+import com.example.tmdbclient.domain.repository.MovieRepository
 import com.example.tmdbclient.data.model.movie.Movie
 
 class UpdateMoviesUseCase(private val movieRepository: MovieRepository) {
