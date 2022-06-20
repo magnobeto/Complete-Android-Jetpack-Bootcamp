@@ -1,4 +1,4 @@
-package com.example.tmdbclient.data.repository.tvshow
+package com.example.tmdbclient.data.repository.tvshow.datasourceimpl
 
 import com.example.tmdbclient.data.db.TvShowDao
 import com.example.tmdbclient.data.model.tvshow.TvShow

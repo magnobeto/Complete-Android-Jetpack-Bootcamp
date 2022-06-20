@@ -17,11 +17,11 @@ class ArtistRepositoryImpl(
     override suspend fun getArtists(): List<Artist>? = getArtistFromCache()
 
     override suspend fun updateArtists(): List<Artist>? {
-        val newListOfMovies = getArtistsFromAPI()
+        val newListOfArtists = getArtistsFromAPI()
         artistLocalDataSource.clearAll()
-        artistLocalDataSource.saveArtistsToDB(newListOfMovies)
-        artistCacheDataSource.saveArtistsToCache(newListOfMovies)
-        return newListOfMovies
+        artistLocalDataSource.saveArtistsToDB(newListOfArtists)
+        artistCacheDataSource.saveArtistsToCache(newListOfArtists)
+        return newListOfArtists
     }
 
     private suspend fun getArtistsFromAPI(): List<Artist> {
