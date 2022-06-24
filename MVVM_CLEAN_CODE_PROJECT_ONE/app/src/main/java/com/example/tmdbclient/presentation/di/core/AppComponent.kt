@@ -14,6 +14,7 @@ import javax.inject.Singleton
         NetworkModule::class,
         DataBaseModule::class,
         RepositoryModule::class,
+        UseCaseModule::class,
         RemoteDataModule::class,
         LocalDataModule::class,
         CacheDataModule::class
