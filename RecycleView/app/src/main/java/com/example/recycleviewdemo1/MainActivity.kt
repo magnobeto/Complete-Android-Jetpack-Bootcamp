@@ -1,14 +1,16 @@
 package com.example.recycleviewdemo1
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
+import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.recycleviewdemo1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
 
     private val fruitList = listOf(
         Fruit("Mango", "Tom"),
@@ -22,14 +24,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        my_recycle_view.setBackgroundColor(Color.GREEN)
-        my_recycle_view.layoutManager = LinearLayoutManager(this)
-        my_recycle_view.adapter = MyRecyclerViewAdapter(fruitList) { selectFruitItem: Fruit ->
-            listItemClicked(
-                selectFruitItem
-            )
+        binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
+        setContentView(binding.root)
+        val list = ListConverter.getJsonDataFromAsset(this)
+        with(binding.myRecycleView) {
+            setBackgroundColor(Color.GREEN)
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter =
+                MyRecyclerViewAdapter(list) { selectFruitItem: Fruit ->
+                    listItemClicked(
+                        selectFruitItem
+                    )
+                }
         }
     }
 
