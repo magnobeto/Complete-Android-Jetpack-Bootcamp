@@ -1,15 +1,14 @@
 package com.example.recycleviewdemo1
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.list_item.view.*
+import com.example.recycleviewdemo1.databinding.ListItemBinding
 
-class MyRecyclerViewAdapter(private val fruitList: List<Fruit>, private val clickListener: (Fruit) -> Unit): RecyclerView.Adapter<MyViewHolder>() {
+class MyRecyclerViewAdapter(private val fruitList: List<SpecialItem>, private val clickListener: (Fruit) -> Unit): RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val listItem = layoutInflater.inflate(R.layout.list_item, parent, false)
+        val listItem = ListItemBinding.inflate(layoutInflater, parent, false)
         return MyViewHolder(listItem)
     }
 
@@ -22,12 +21,14 @@ class MyRecyclerViewAdapter(private val fruitList: List<Fruit>, private val clic
     }
 }
 
-class MyViewHolder(private val view : View): RecyclerView.ViewHolder(view) {
+class MyViewHolder(private val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root) {
 
-    fun bind (fruit: Fruit, listener: (Fruit) -> Unit) {
-        view.name_item_txt.text = fruit.name
-        view.setOnClickListener {
-            listener(fruit)
+    fun bind (fruit: SpecialItem, listener: (Fruit) -> Unit) {
+        with(binding) {
+            nameItemTxt.text = fruit.nome
+            btnContainer.setOnClickListener {
+//                listener(fruit)
+            }
         }
     }
 }
