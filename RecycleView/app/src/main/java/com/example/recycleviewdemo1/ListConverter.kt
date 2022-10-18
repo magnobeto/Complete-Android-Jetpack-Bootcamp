@@ -8,22 +8,19 @@ import java.io.IOException
 
 object ListConverter {
     fun getJsonDataFromAsset(context: Context): List<SpecialItem> {
-        var jsonString = ""
-        try {
-            jsonString =
+        return try {
+            val jsonString =
                 context.assets.open("interativos.json").bufferedReader().use { it.readText() }
-        } catch (ioException: IOException) {
-            ioException.printStackTrace()
-            return listOf()
-        }
-        val gson = Gson()
-        val itemType = object : TypeToken<List<SpecialItem>>() {}.type
-        val itemList =
-            gson.fromJson<List<SpecialItem>>(
+            val gson = Gson()
+            val itemType = object : TypeToken<List<SpecialItem>>() {}.type
+            gson.fromJson(
                 jsonString,
                 itemType
             )
-        return itemList
+        } catch (ioException: IOException) {
+            ioException.printStackTrace()
+            listOf()
+        }
     }
 }
 
