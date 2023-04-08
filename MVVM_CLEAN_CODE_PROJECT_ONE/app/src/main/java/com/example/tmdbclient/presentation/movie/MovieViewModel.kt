@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.tmdbclient.domain.usecase.GetMoviesUseCase
 import com.example.tmdbclient.domain.usecase.UpdateMoviesUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 
 class MovieViewModel(
     private val getMoviesUseCase: GetMoviesUseCase,

@@ -1,20 +1,24 @@
 package com.example.tmdbclient.presentation.di.core
 
+import com.example.tmdbclient.BuildConfig
 import com.example.tmdbclient.data.api.TMDBService
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-class NetworkModule(private val baseUrl: String) {
+@InstallIn(SingletonComponent::class)
+class NetworkModule {
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(baseUrl)
+            .baseUrl(BuildConfig.BASE_URL)
             .build()
     }
     @Singleton

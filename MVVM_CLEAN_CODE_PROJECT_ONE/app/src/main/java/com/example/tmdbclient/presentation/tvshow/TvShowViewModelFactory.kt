@@ -8,7 +8,7 @@ import com.example.tmdbclient.domain.usecase.UpdateTvShowsUseCase
 class TvShowViewModelFactory(
     private val getTvShowsUseCase: GetTvShowsUseCase,
     private val updateTvShowsUseCase: UpdateTvShowsUseCase
-) : ViewModelProvider.Factory {
+) : ViewModelProvider.AndroidViewModelFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return TvShowViewModel(getTvShowsUseCase, updateTvShowsUseCase) as T
     }
