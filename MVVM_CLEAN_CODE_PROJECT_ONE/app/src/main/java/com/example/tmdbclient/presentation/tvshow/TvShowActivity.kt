@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,14 +17,12 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class TvShowActivity : AppCompatActivity() {
-    @Inject lateinit var factory: TvShowViewModelFactory
-    private lateinit var tvShowViewModel: TvShowViewModel
+    private val tvShowViewModel: TvShowViewModel by viewModels()
     private lateinit var binding: ActivityTvShowBinding
     private lateinit var adapter: TvShowAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_tv_show)
-        tvShowViewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
         initRecyclerView()
     }
 

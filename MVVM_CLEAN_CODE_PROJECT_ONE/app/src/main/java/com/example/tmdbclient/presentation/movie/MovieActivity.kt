@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,17 +17,14 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MovieActivity : AppCompatActivity() {
-    @Inject lateinit var factory: MovieViewModelFactory
-    private lateinit var movieViewModel: MovieViewModel
+    private val movieViewModel: MovieViewModel by viewModels()
     private lateinit var binding: ActivityMovieBinding
     private lateinit var adapter: MovieAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_movie)
-        movieViewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
         initRecyclerView()
-
     }
 
     private fun initRecyclerView() {

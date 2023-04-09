@@ -4,8 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.tmdbclient.domain.usecase.GetTvShowsUseCase
 import com.example.tmdbclient.domain.usecase.UpdateTvShowsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class TvShowViewModel(
+@HiltViewModel
+class TvShowViewModel @Inject constructor(
     private val getTvShowsUseCase: GetTvShowsUseCase,
     private val updateTvShowsUseCase: UpdateTvShowsUseCase
 ) : ViewModel() {

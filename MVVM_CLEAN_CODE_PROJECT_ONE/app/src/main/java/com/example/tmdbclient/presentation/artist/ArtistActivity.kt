@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,14 +17,12 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class ArtistActivity : AppCompatActivity() {
-    @Inject lateinit var factory: ArtistViewModelFactory
-    private lateinit var artistViewModel: ArtistViewModel
+    private val artistViewModel: ArtistViewModel by viewModels()
     private lateinit var binding: ActivityArtistBinding
     private lateinit var adapter: ArtistAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_artist)
-        artistViewModel = ViewModelProvider(this, factory)[ArtistViewModel::class.java]
         initRecyclerView()
     }
 

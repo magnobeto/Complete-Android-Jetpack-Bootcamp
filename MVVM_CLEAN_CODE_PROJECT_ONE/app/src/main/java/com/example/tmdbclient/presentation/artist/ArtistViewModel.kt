@@ -4,8 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.tmdbclient.domain.usecase.GetArtistsUseCase
 import com.example.tmdbclient.domain.usecase.UpdateArtistsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class ArtistViewModel(
+@HiltViewModel
+class ArtistViewModel @Inject constructor(
     private val getArtistsUseCase: GetArtistsUseCase,
     private val  updateArtistsUseCase: UpdateArtistsUseCase
 ) : ViewModel() {
