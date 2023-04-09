@@ -1,7 +1,6 @@
-package com.example.tmdbclient.presentation.di.core
+package com.example.tmdbclient.presentation.di
 
 import android.app.Application
-import android.content.Context
 import androidx.room.Room
 import com.example.tmdbclient.data.db.ArtistDao
 import com.example.tmdbclient.data.db.MovieDao

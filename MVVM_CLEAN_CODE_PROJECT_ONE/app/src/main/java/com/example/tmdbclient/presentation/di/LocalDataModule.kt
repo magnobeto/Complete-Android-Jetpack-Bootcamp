@@ -1,4 +1,4 @@
-package com.example.tmdbclient.presentation.di.core
+package com.example.tmdbclient.presentation.di
 
 import com.example.tmdbclient.data.db.ArtistDao
 import com.example.tmdbclient.data.db.MovieDao
