@@ -1,0 +1,266 @@
+{
+  "status": "ok",
+  "totalResults": 37,
+  "articles": [
+    {
+      "source": {
+        "id": "the-washington-post",
+        "name": "The Washington Post"
+      },
+      "author": "Ann E. Marimow, Caroline Kitchener, Perry Stein",
+      "title": "Texas judge suspends FDA approval of abortion pill; second judge protects access - The Washington Post",
+      "description": "The decision will probably be appealed to the U.S. Court of Appeals for the 5th Circuit, and the case could make its way to the Supreme Court.",
+      "url": "https://www.washingtonpost.com/politics/2023/04/07/texas-abortion-pill-ruling-mifepristone/",
+      "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/RUGYE267K3IUF62PXM6DHQQIQY.JPG&w=1440",
+      "publishedAt": "2023-04-08T00:12:29Z",
+      "content": "Comment on this story\r\nComment\r\nA federal judge in Texas blocked U.S. government approval of a key abortion medication Friday, siding with abortion foes in an unprecedented lawsuit and potentially up… [+9572 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "ESPN"
+      },
+      "author": "Mark Schlabach",
+      "title": "Brooks Koepka sets pace at Masters with second-round 67 - ESPN",
+      "description": "Brooks Koepka started to pull away from the field after firing a 5-under 67 in Friday's second round to move to 12-under after 36 holes at the Masters.",
+      "url": "https://www.espn.com/golf/story/_/id/36107751/brooks-koepka-pulls-away-pack-67-masters",
+      "urlToImage": "https://a1.espncdn.com/combiner/i?img=%2Fphoto%2F2023%2F0407%2Fr1155740_1296x729_16%2D9.jpg",
+      "publishedAt": "2023-04-07T23:15:00Z",
+      "content": "AUGUSTA, Ga. -- After Brooks Koepka missed the cut in the Masters for the second straight year in April 2022, he took out his frustration on his courtesy car in the parking lot of Augusta National Go… [+7103 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "FOX 35 Orlando"
+      },
+      "author": "FOX 35 Orlando",
+      "title": "2 boys arrested, 1 on the run in murders of 3 teens in Marion County, Florida sheriff says - FOX 35 Orlando",
+      "description": "The two juveniles, who FOX 35 is not naming due to their ages, were arrested late Thursday night and are facing charges of first-degree murder. Deputies are still searching for a third suspect, 16-year-old Tahj Brewton.",
+      "url": "https://www.fox35orlando.com/news/arrests-made-in-murders-of-3-teens-in-marion-county-sheriffs-office",
+      "urlToImage": "https://images.foxtv.com/static.fox35orlando.com/www.fox35orlando.com/content/uploads/2023/04/1280/720/Marion-County-triple-homicide-suspects-2.jpg?ve=1&tl=1",
+      "publishedAt": "2023-04-07T22:36:43Z",
+      "content": "MARION COUNTY, Fla. - Marion County Sheriff Billy Woods said Friday that two boys – aged 12 and 17 – have been arrested in the alleged murders of three teenagers in a rural part of Marion County and … [+3938 chars]"
+    },
+    {
+      "source": {
+        "id": "usa-today",
+        "name": "USA Today"
+      },
+      "author": "Joey Garrison, Sandy Mazza, Michael Collins",
+      "title": "Tennessee House expulsion: Kamala Harris meets with ousted members - USA TODAY",
+      "description": "Vice President Kamala Harris made a surprise visit to Nashville, where she met with the Tennessee Democrats expelled over gun protests.",
+      "url": "https://www.usatoday.com/story/news/politics/2023/04/07/tennessee-house-expulsion-kamala-harris-meet-ousted-members/11621736002/",
+      "urlToImage": "https://www.gannett-cdn.com/presto/2023/04/07/PNAS/e584f3b6-a6ba-4311-9e3f-4ae3649b847c-harris_visit_003.jpg?crop=3599,2025,x0,y183&width=3200&height=1801&format=pjpg&auto=webp",
+      "publishedAt": "2023-04-07T22:30:00Z",
+      "content": "NASHVILLE Vice President Kamala Harris made a surprise visit to Nashville on Friday to push for gun control and meet with two Tennessee Democratic lawmakers who were expelled from the General Assembl… [+3753 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Yahoo Entertainment"
+      },
+      "author": "Jay Busbee",
+      "title": "Masters 2023: Sam Bennett, leading amateur, is more than a tattoo - Yahoo Sports",
+      "description": "How Sam Bennett overcame tragedy to become one of the most fascinating players at the Masters.",
+      "url": "https://sports.yahoo.com/masters-2023-sam-bennett-leading-amateur-is-more-than-a-tattoo-222608282.html",
+      "urlToImage": "https://s.yimg.com/ny/api/res/1.2/lR7KOst6G1zVxJgxgiEghQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2023-03/f3b0b8a0-d592-11ed-88ee-30b86ca38a98",
+      "publishedAt": "2023-04-07T22:26:08Z",
+      "content": "Sam Bennett tips his cap on the 18th hole during the second round of the Masters at Augusta National Golf Club on Friday, in Augusta, Ga. The amateur is second place in the clubhouse after two rounds… [+5522 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "BBC News"
+      },
+      "author": "https://www.facebook.com/bbcnews",
+      "title": "Supreme Court's Clarence Thomas defends luxury trips - BBC",
+      "description": "Clarence Thomas says guidelines were followed after a report revealed vacations funded by a billionaire.",
+      "url": "https://www.bbc.com/news/world-us-canada-65215407",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/E646/production/_129305985_clarencethomas.jpg",
+      "publishedAt": "2023-04-07T22:23:42Z",
+      "content": "US Supreme Court Justice Clarence Thomas has said he believed luxury trips he took with a billionaire Republican donor followed guidelines.\r\nA ProPublica report earlier this week said Justice Thomas … [+4757 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Sean Lyngaas",
+      "title": "Leaked Pentagon documents on Ukraine apparently posted to video game chatroom last month - CNN",
+      "description": "The fallout from the leak of what appears to be classified US military documents on the war in Ukraine took a bizarre turn Friday as evidence surfaced that versions of the documents had been posted over a month ago to a video game-focused chatroom on social m…",
+      "url": "https://www.cnn.com/2023/04/07/politics/pentagon-leaked-ukraine-documents/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/230407174138-pentagon-building-file.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2023-04-07T22:16:00Z",
+      "content": "The fallout from the leak of what appears to be classified US military documents on the war in Ukraine took a bizarre turn Friday as evidence surfaced that versions of the documents had been posted o… [+2037 chars]"
+    },
+    {
+      "source": {
+        "id": "the-verge",
+        "name": "The Verge"
+      },
+      "author": "Mitchell Clark",
+      "title": "Microsoft's rolling out Edge's AI image generator to everyone - The Verge",
+      "description": "Microsoft has said that Edge’s Image Creator tool, which uses OpenAI’s DALL-E image generation tech, will be available to the browser’s users worldwide.",
+      "url": "https://www.theverge.com/2023/4/6/23672862/microsoft-image-creator-edge-sidebar-dall-e-ai-generator",
+      "urlToImage": "https://cdn.vox-cdn.com/thumbor/QgefHWEPNDkBFDUUDTdGUuWqJjc=/0x0:2040x1360/1200x628/filters:focal(1020x680:1021x681)/cdn.vox-cdn.com/uploads/chorus_asset/file/24385268/STK148_Microsoft_Edge_1.jpg",
+      "publishedAt": "2023-04-07T22:01:33Z",
+      "content": "Microsofts rolling out Edges AI image generator to everyone\r\nMicrosofts rolling out Edges AI image generator to everyone\r\n / It says the Image Creator tool is now available on desktop for Edge users … [+2315 chars]"
+    },
+    {
+      "source": {
+        "id": "fox-news",
+        "name": "Fox News"
+      },
+      "author": "Andrea Vacchiano",
+      "title": "Marburg virus: CDC warns US public health officials of Ebola-like disease - Fox News",
+      "description": "The CDC is warning American public health officials and clinicians about the rare Ebola-like Marburg virus reported in Tanzania and Equatorial Guinea, though there are no U.S. cases.",
+      "url": "https://www.foxnews.com/health/marburg-virus-cdc-warns-us-public-health-officials-ebola-like-disease",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2023/04/marburg1.jpg",
+      "publishedAt": "2023-04-07T21:38:00Z",
+      "content": "The U.S. Centers for Disease Control and Prevention\r\n (CDC) published a warning about the rare Ebola-like Marburg virus Thursday, advising American public health officials and doctors to be on the lo… [+2027 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "9to5Mac"
+      },
+      "author": "Ian Zelbo",
+      "title": "Exclusive: iPhone 15 Pro design revealed - 9to5Mac",
+      "description": "Last month, 9to5Mac exclusively shared the upcoming iPhone 15 Pro design with basic CAD images. Since then, we’ve been working...",
+      "url": "https://9to5mac.com/2023/04/07/iphone-15-pro-design-exclusive-images/",
+      "urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2023/04/Explode-4-1.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+      "publishedAt": "2023-04-07T21:29:00Z",
+      "content": "Last month, 9to5Mac exclusively shared the upcoming iPhone 15 Pro design with basic CAD images. Since then, we’ve been working to gather more exclusive details from MFi accessory makers, new detailed… [+4205 chars]"
+    },
+    {
+      "source": {
+        "id": "the-verge",
+        "name": "The Verge"
+      },
+      "author": "Mitchell Clark",
+      "title": "One of Elon's handpicked “Twitter Files” writers quits Twitter over its Substack restrictions - The Verge",
+      "description": "Matt Taibbi says he’s leaving Twitter following the social media platform’s fight with Substack that lead it to ban users from liking or retweeting posts from the platform, as well as ones that link to it.",
+      "url": "https://www.theverge.com/2023/4/7/23674705/twitter-files-elon-musk-substack-matt-taibbi",
+      "urlToImage": "https://cdn.vox-cdn.com/thumbor/qX6_MdWPzA482PtFM33EDVitufE=/0x0:2040x1360/1200x628/filters:focal(1020x680:1021x681)/cdn.vox-cdn.com/uploads/chorus_asset/file/23906823/VRG_Illo_STK022_K_Radtke_Musk_Smiles.jpg",
+      "publishedAt": "2023-04-07T21:15:11Z",
+      "content": "One of Elons handpicked Twitter Files writers quits Twitter over its Substack restrictions\r\nOne of Elons handpicked Twitter Files writers quits Twitter over its Substack restrictions\r\n / Matt Taibbi … [+2992 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "KSL.com"
+      },
+      "author": "https://www.facebook.com/kslcom/",
+      "title": "COVID caused brain damage in 2 infants infected during pregnancy, study finds - KSL.com",
+      "description": "Researchers at the University of Miami reported on Thursday what they believe are the first two confirmed cases in which the SARS-CoV-2 virus crossed a mother's placenta and caused brain damage in the infants they were carrying.",
+      "url": "https://www.ksl.com/article/50616543/covid-caused-brain-damage-in-2-infants-infected-during-pregnancy-study-finds",
+      "urlToImage": "https://img.ksl.com/slc/2923/292378/29237890.JPG?filter=kslv2/responsive_story_lg",
+      "publishedAt": "2023-04-07T20:03:55Z",
+      "content": "Estimated read time: 3-4\r\n minutes\r\nCHICAGO Researchers at the University of Miami reported on Thursday what they believe are the first two confirmed cases in which the SARS-CoV-2 virus crossed a mot… [+2975 chars]"
+    },
+    {
+      "source": {
+        "id": "associated-press",
+        "name": "Associated Press"
+      },
+      "author": "Isabel Debre",
+      "title": "Attacks in Israel, West Bank kill 3 people as violence rises - The Associated Press",
+      "description": "JERUSALEM (AP) — Palestinian militants carried out a pair of attacks on Friday, killing three people and wounding at least six as tensions soared after days of fighting at Jerusalem’s most sensitive holy site.",
+      "url": "https://apnews.com/article/israel-lebanon-palestinian-jerusalem-alaqsa-hezbollah-19aabd8b5eeb9f972db0c35468a047eb",
+      "urlToImage": "https://storage.googleapis.com/afs-prod/media/f91ac93904f64e8eacf3eb3d000dab8b/3000.jpeg",
+      "publishedAt": "2023-04-07T20:03:45Z",
+      "content": "JERUSALEM (AP) Palestinian militants carried out a pair of attacks on Friday, killing three people and wounding at least six as tensions soared after days of fighting at Jerusalems most sensitive hol… [+7172 chars]"
+    },
+    {
+      "source": {
+        "id": "independent",
+        "name": "Independent"
+      },
+      "author": "Meredith Clark",
+      "title": "Pope Francis says sex is a 'beautiful thing' and it's 'normal' to meet people on Tinder - The Independent",
+      "description": "‘Sex is one of the beautiful things that God has given to the human person’ the Pope says in a new documentary",
+      "url": "https://www.independent.co.uk/life-style/love-sex/pope-francis-sex-tinder-documentary-b2316228.html",
+      "urlToImage": "https://static.independent.co.uk/2023/04/07/20/newFile.jpg?quality=75&width=1200&auto=webp",
+      "publishedAt": "2023-04-07T19:52:14Z",
+      "content": "Stay ahead of the trend in fashion and beyond with our free weekly Lifestyle Edit newsletter\r\nStay ahead of the trend in fashion and beyond with our free weekly Lifestyle Edit newsletter \r\nPope Franc… [+3364 chars]"
+    },
+    {
+      "source": {
+        "id": "abc-news",
+        "name": "ABC News"
+      },
+      "author": "FRANCES D'EMILIO Associated Press",
+      "title": "Pope Francis skips Good Friday at Colosseum in chilly Rome - ABC News",
+      "description": "Pope Francis, hospitalized recently with bronchitis, has skipped the traditional Good Friday nighttime procession at the Colosseum because of chilly weather in Rome",
+      "url": "https://abcnews.go.com/International/wireStory/pope-francis-miss-cross-event-cold-rome-98428605",
+      "urlToImage": "https://s.abcnews.com/images/International/wirestory_1b880443cf6884392e0701ff6562562b_16x9_992.jpg",
+      "publishedAt": "2023-04-07T19:31:47Z",
+      "content": "ROME -- Pope Francis, hospitalized recently with bronchitis, skipped the traditional Good Friday nighttime procession at the Colosseum because of chilly weather in Rome, staying instead at his home a… [+3650 chars]"
+    },
+    {
+      "source": {
+        "id": "independent",
+        "name": "Independent"
+      },
+      "author": "Gustaf Kilander",
+      "title": "Cash App founder killed — latest: Bob Lee stabbing leads chased by San Francisco police but still no suspects - The Independent",
+      "description": "Latest updates on the death of Cash App founder Bob Lee",
+      "url": "https://www.independent.co.uk/news/world/americas/crime/cash-app-founder-dead-bob-lee-san-francisco-b2315844.html",
+      "urlToImage": "https://static.independent.co.uk/2023/04/06/12/ben%20lee.jpg?quality=75&width=1200&auto=webp",
+      "publishedAt": "2023-04-07T19:11:45Z",
+      "content": "Bob Lee was willing to play around and share his knowledge'\r\nLee first got noticed in the tech world as a hacker and open source code developer as a teenager in St Louis, Missouri, in the 1990s, frie… [+932 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Daily Beast"
+      },
+      "author": "Kyndall Cunningham",
+      "title": "Drake's New Track Is a Direct Provocation of Kanye West - The Daily Beast",
+      "description": "The Jewish rapper seems to be trying to reignite a long-standing beef with his antisemitic rival by sampling Kim Kardashian.",
+      "url": "https://www.thedailybeast.com/drakes-new-track-search-and-rescue-is-a-direct-provocation-of-kanye-west",
+      "urlToImage": "https://img.thedailybeast.com/image/upload/c_crop,d_placeholder_euli9k,h_1688,w_3000,x_0,y_114/dpr_2.0/c_limit,w_740/fl_lossy,q_auto/v1680890661/GettyImages-1448234007_wm67qz",
+      "publishedAt": "2023-04-07T18:19:18Z",
+      "content": "Drake has a habit of trolling his fellow emcees. Hes also known to publicly shoot his shot with famous women. Its appropriate then that the rappers latest single would sample the ex-spouse of one of … [+3706 chars]"
+    },
+    {
+      "source": {
+        "id": "techcrunch",
+        "name": "TechCrunch"
+      },
+      "author": "Kirsten Korosec",
+      "title": "Tesla’s strategy to fuel EV sales? Keep cutting prices - TechCrunch",
+      "description": "Tesla has lowered its prices of its four EVs again in a bid to boost sales ahead of tightening U.S. federal tax credit requirements.",
+      "url": "https://techcrunch.com/2023/04/07/teslas-strategy-to-fuel-ev-sales-keep-cutting-prices/",
+      "urlToImage": "https://techcrunch.com/wp-content/uploads/2022/12/0x0-Charging_06.png?resize=1200,800",
+      "publishedAt": "2023-04-07T18:13:29Z",
+      "content": "Tesla may be a relative newcomer compared to legacy companies like GM and Ford, but it has adopted an age-old tactic in the industry: price wars.\r\nThe automaker has lowered the sticker price on its v… [+1921 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Salon"
+      },
+      "author": "Matthew Rozsa",
+      "title": "A new study links 45 health problems to \"free sugar.\" Here's what that means, and how to avoid it - Salon",
+      "description": "Free sugar has been linked to cancer, heart attacks, diabetes, obesity, strokes and more ailments",
+      "url": "https://www.salon.com/2023/04/07/free-sugar-health-study/",
+      "urlToImage": "https://mediaproxy.salon.com/width/1200/https://media.salon.com/2017/10/sugar-compressor.jpg",
+      "publishedAt": "2023-04-07T17:56:00Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "fox-news",
+        "name": "Fox News"
+      },
+      "author": "Greg Norman",
+      "title": "Wall Street Journal reporter charged with spying in Russia, an accusation he denies - Fox News",
+      "description": "Wall Street Journal reporter Evan Gershkovich is denying formal espionage charges that have been filed against him, Russian state media is reporting.",
+      "url": "https://www.foxnews.com/world/wall-street-journal-reporter-charged-spying-russia-accusation-he-denies",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2023/04/Former-Moscow-correspondent-predicts-WSJ-reporters-fate.jpg",
+      "publishedAt": "2023-04-07T17:52:00Z",
+      "content": "Wall Street Journal reporter Evan Gershkovich has been officially charged with spying in Russia, news organizations from the country are reporting Friday. \r\nInterfax, quoting a source, said \"Gershkov… [+2737 chars]"
+    }
+  ]
+}

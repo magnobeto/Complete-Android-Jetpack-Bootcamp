@@ -12,5 +12,5 @@ class NewsRemoteDataSourceImpl(
 ) : NewsRemoteDataSource {
 
     override suspend fun getTopHeadlines(): Response<APIResponse> =
-        newsAPIService.getTopHeadlines(page, country)
+        newsAPIService.getTopHeadlines(country, page)
 }
