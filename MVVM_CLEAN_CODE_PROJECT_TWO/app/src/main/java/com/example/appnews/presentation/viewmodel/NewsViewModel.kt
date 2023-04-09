@@ -9,10 +9,13 @@ import com.example.appnews.data.model.APIResponse
 import com.example.appnews.data.util.NetworkUtils
 import com.example.appnews.data.util.Resource
 import com.example.appnews.domain.usecase.GetNewsHeadlinesUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class NewsViewModel(
+@HiltViewModel
+class NewsViewModel @Inject constructor(
     private val application: Application,
     private val getNewsHeadlinesUseCase: GetNewsHeadlinesUseCase
 ) : AndroidViewModel(application) {
