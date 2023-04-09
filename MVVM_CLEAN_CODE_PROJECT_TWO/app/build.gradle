@@ -126,5 +126,16 @@ dependencies {
     // Test
     testImplementation("com.squareup.okhttp3:mockwebserver:4.10.0")
     testImplementation 'org.amshove.kluent:kluent-android:1.68'
+
+    // Navigation
+    def nav_version = "2.5.3"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // Feature module Support
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+
+    // Testing Navigation
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 }
 
