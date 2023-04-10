@@ -1,4 +1,4 @@
-package com.example.appnews
+package com.example.appnews.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.appnews.BuildConfig
 import com.example.appnews.data.util.Resource
 import com.example.appnews.databinding.FragmentNewsBinding
-import com.example.appnews.presentation.NewsAdapter
 import com.example.appnews.presentation.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,6 +20,7 @@ class NewsFragment : Fragment() {
     private val viewModel: NewsViewModel by activityViewModels()
     private lateinit var binding: FragmentNewsBinding
     private lateinit var newsAdapter: NewsAdapter
+    
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
