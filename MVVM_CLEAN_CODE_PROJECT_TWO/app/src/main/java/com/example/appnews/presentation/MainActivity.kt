@@ -8,7 +8,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.appnews.R
 import com.example.appnews.databinding.ActivityMainBinding
 import com.example.appnews.presentation.viewmodel.NewsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val newsViewModel: NewsViewModel by viewModels()

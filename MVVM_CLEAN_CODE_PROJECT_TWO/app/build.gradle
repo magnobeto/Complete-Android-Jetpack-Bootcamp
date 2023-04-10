@@ -18,8 +18,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String","API_KEY","\"ff099fc070bb4d70bb279d3cade0034c\""
-        buildConfigField "String","BASE_URL","\"https://newsapi.org\""
+        buildConfigField "String", "API_KEY", "\"ff099fc070bb4d70bb279d3cade0034c\""
+        buildConfigField "String", "BASE_URL", "\"https://newsapi.org\""
+        buildConfigField "String", "COUNTRY", "\"us\""
+        buildConfigField "int", "PAGE", '1'
     }
 
     buildTypes {
