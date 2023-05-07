@@ -59,7 +59,6 @@ class NewsFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        newsAdapter = NewsAdapter()
         with(binding.recyclewView) {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
