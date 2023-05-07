@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appnews.BuildConfig
+import com.example.appnews.R
 import com.example.appnews.data.util.Resource
 import com.example.appnews.databinding.FragmentNewsBinding
 import com.example.appnews.presentation.viewmodel.NewsViewModel
@@ -99,6 +102,10 @@ class NewsFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
+        newsAdapter.setOnClickListener {
+            val bundle = bundleOf("selected_article" to it)
+            findNavController().navigate(R.id.action_newsFragment_to_newsInfoFragment, bundle)
+        }
         with(binding.recyclewView) {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
