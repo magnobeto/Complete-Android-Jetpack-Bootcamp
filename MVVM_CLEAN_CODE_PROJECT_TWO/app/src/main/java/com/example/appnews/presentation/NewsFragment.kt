@@ -13,14 +13,16 @@ import com.example.appnews.data.util.Resource
 import com.example.appnews.databinding.FragmentNewsBinding
 import com.example.appnews.presentation.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class NewsFragment : Fragment() {
 
-    private val viewModel: NewsViewModel by activityViewModels()
     private lateinit var binding: FragmentNewsBinding
-    private lateinit var newsAdapter: NewsAdapter
-    
+    private val viewModel: NewsViewModel by activityViewModels()
+    @Inject
+    lateinit var newsAdapter: NewsAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

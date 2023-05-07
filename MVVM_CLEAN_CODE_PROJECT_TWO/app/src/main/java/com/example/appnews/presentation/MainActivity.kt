@@ -9,12 +9,13 @@ import com.example.appnews.R
 import com.example.appnews.databinding.ActivityMainBinding
 import com.example.appnews.presentation.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val newsViewModel: NewsViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
+    private val newsViewModel: NewsViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
