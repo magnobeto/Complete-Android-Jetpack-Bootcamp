@@ -125,6 +125,7 @@ class NewsFragment : Fragment() {
                 }
 
                 override fun onQueryTextChange(searchQuery: String?): Boolean {
+                    // This cause bug when back from a article
                     MainScope().launch {
                         delay(2000)
                         viewModel.getSearchedNews(BuildConfig.COUNTRY, searchQuery.toString(), page)
