@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -19,6 +20,7 @@ import com.example.appnews.data.util.Resource
 import com.example.appnews.databinding.FragmentNewsBinding
 import com.example.appnews.presentation.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -72,6 +74,7 @@ class NewsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewNewsList()
+        setSearchView()
         initRecyclerView()
     }
 
@@ -84,7 +87,7 @@ class NewsFragment : Fragment() {
 
     private fun viewSearchNewsList() {
         viewModel.searchNews.observe(viewLifecycleOwner) { response ->
-           checkReturnedResponseAndShowListOrError(response)
+            checkReturnedResponseAndShowListOrError(response)
         }
     }
 
@@ -108,6 +111,33 @@ class NewsFragment : Fragment() {
             is Resource.Error -> {
                 hideProgressBar()
                 response.message?.let { showToast(it) }
+            }
+        }
+    }
+
+    private fun setSearchView() {
+        with(binding.searchView) {
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(searchQuery: String?): Boolean {
+                    viewModel.getSearchedNews(BuildConfig.COUNTRY, searchQuery.toString(), page)
+                    viewSearchNewsList()
+                    return true
+                }
+
+                override fun onQueryTextChange(searchQuery: String?): Boolean {
+                    MainScope().launch {
+                        delay(2000)
+                        viewModel.getSearchedNews(BuildConfig.COUNTRY, searchQuery.toString(), page)
+                        viewSearchNewsList()
+                    }
+                    return true
+                }
+            })
+
+            setOnCloseListener {
+                viewNewsList()
+                initRecyclerView()
+                true
             }
         }
     }
