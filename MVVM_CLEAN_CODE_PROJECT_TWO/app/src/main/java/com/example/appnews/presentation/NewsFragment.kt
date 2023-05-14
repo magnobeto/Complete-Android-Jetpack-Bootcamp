@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appnews.BuildConfig
 import com.example.appnews.R
+import com.example.appnews.data.model.APIResponse
 import com.example.appnews.data.util.Resource
 import com.example.appnews.databinding.FragmentNewsBinding
 import com.example.appnews.presentation.viewmodel.NewsViewModel
@@ -77,26 +78,36 @@ class NewsFragment : Fragment() {
     private fun viewNewsList() {
         viewModel.getNewsHeadline(BuildConfig.COUNTRY, page)
         viewModel.newsHeadLine.observe(viewLifecycleOwner) { response ->
-            when (response) {
-                is Resource.Success -> {
-                    hideProgressBar()
-                    response.data?.let {
-                        newsAdapter.differ.submitList(it.articles.toList())
-                        pages = if (it.totalResults % 20 == 0) {
-                            it.totalResults / 20
-                        } else {
-                            it.totalResults / 20 + 1
-                        }
-                        isLastPage = page == pages
+            checkReturnedResponseAndShowListOrError(response)
+        }
+    }
+
+    private fun viewSearchNewsList() {
+        viewModel.searchNews.observe(viewLifecycleOwner) { response ->
+           checkReturnedResponseAndShowListOrError(response)
+        }
+    }
+
+    private fun checkReturnedResponseAndShowListOrError(response: Resource<APIResponse>) {
+        when (response) {
+            is Resource.Success -> {
+                hideProgressBar()
+                response.data?.let {
+                    newsAdapter.differ.submitList(it.articles.toList())
+                    pages = if (it.totalResults % 20 == 0) {
+                        it.totalResults / 20
+                    } else {
+                        it.totalResults / 20 + 1
                     }
+                    isLastPage = page == pages
                 }
-                is Resource.Loading -> {
-                    showProgressBar()
-                }
-                is Resource.Error -> {
-                    hideProgressBar()
-                    response.message?.let { showToast(it) }
-                }
+            }
+            is Resource.Loading -> {
+                showProgressBar()
+            }
+            is Resource.Error -> {
+                hideProgressBar()
+                response.message?.let { showToast(it) }
             }
         }
     }

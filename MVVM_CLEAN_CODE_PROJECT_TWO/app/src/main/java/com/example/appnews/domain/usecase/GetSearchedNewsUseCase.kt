@@ -4,5 +4,6 @@ import com.example.appnews.domain.repository.NewsRepository
 
 class GetSearchedNewsUseCase(private val newsRepository: NewsRepository) {
 
-    suspend fun execute(searchQuery: String) = newsRepository.getSearchedNews(searchQuery)
+    suspend fun execute(country: String, searchQuery: String, page: Int) =
+        newsRepository.getSearchedNews(country, searchQuery, page)
 }
