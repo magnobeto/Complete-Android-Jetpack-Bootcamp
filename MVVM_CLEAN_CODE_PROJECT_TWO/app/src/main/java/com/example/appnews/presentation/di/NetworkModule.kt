@@ -6,6 +6,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -16,10 +19,11 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun providesRetrofitInstance(): Retrofit {
+    fun providesRetrofitInstance(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
             .build()
     }
 
@@ -27,5 +31,15 @@ class NetworkModule {
     @Provides
     fun providesNewsAPIService(retrofit: Retrofit): NewsAPIService {
         return retrofit.create(NewsAPIService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun providesOkHttpClient(): OkHttpClient {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+        return OkHttpClient().newBuilder()
+            .addInterceptor(interceptor)
+            .build()
     }
 }

@@ -125,12 +125,12 @@ class NewsFragment : Fragment() {
                 }
 
                 override fun onQueryTextChange(searchQuery: String?): Boolean {
-                    // This cause bug when back from a article
-                    MainScope().launch {
-                        delay(2000)
-                        viewModel.getSearchedNews(BuildConfig.COUNTRY, searchQuery.toString(), page)
-                        viewSearchNewsList()
-                    }
+                    // TODO This cause bug when back from a article and make reach limited access to api
+//                    MainScope().launch {
+//                        delay(2000)
+//                        viewModel.getSearchedNews(BuildConfig.COUNTRY, searchQuery.toString(), page)
+//                        viewSearchNewsList()
+//                    }
                     return true
                 }
             })
