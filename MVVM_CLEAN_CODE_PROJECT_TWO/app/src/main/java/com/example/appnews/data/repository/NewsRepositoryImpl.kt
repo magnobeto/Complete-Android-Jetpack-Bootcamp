@@ -6,7 +6,11 @@ import com.example.appnews.data.repository.dataSource.NewsLocalDataSource
 import com.example.appnews.data.repository.dataSource.NewsRemoteDataSource
 import com.example.appnews.data.util.Resource
 import com.example.appnews.domain.repository.NewsRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Response
 
 class NewsRepositoryImpl(
@@ -30,9 +34,7 @@ class NewsRepositoryImpl(
         TODO("Not yet implemented")
     }
 
-    override fun getSavedNews(): Flow<List<Article>> {
-        TODO("Not yet implemented")
-    }
+    override fun getSavedNews(): Flow<List<Article>> = newsLocalDataSource.getAllSaveNews()
 
     private fun responseToResource(response: Response<APIResponse>): Resource<APIResponse> {
         if (response.isSuccessful) {

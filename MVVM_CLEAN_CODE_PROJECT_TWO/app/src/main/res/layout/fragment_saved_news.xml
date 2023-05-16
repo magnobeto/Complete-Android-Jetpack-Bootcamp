@@ -3,10 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/layout_background"
     tools:context=".presentation.SavedNewsFragment">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclew_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="saved news fragment" />
+        tools:listitem="@layout/news_list_item" />
 </FrameLayout>
