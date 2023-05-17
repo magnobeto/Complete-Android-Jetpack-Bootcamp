@@ -11,7 +11,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class AdapterModule {
 
-    @Singleton
     @Provides
     fun provideNewsAdapter() = NewsAdapter()
 }

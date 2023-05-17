@@ -67,7 +67,7 @@ class NewsViewModel @Inject constructor(
         }
 
     fun getSavedArtiles() = liveData {
-        getSavedNewsUseCase.execute().collect { emit(it) }
+        getSavedNewsUseCase.execute().collect { emit(it.reversed()) }
     }
 
     companion object {
