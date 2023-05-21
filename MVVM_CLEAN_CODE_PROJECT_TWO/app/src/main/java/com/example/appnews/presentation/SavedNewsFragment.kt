@@ -1,15 +1,18 @@
 package com.example.appnews.presentation
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appnews.R
+import com.example.appnews.data.model.Article
 import com.example.appnews.databinding.FragmentNewsBinding
 import com.example.appnews.databinding.FragmentSavedNewsBinding
 import com.example.appnews.presentation.viewmodel.NewsViewModel
@@ -45,10 +48,19 @@ class SavedNewsFragment : Fragment() {
             findNavController().navigate(R.id.action_savedNewsFragment_to_newsInfoFragment, bundle)
         }
 
+        newsAdapter.setOnLongClickListener {
+            setupDialogFragment(it)
+        }
+
         with(binding.recyclewView) {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
         }
+    }
+
+    private fun setupDialogFragment(article: Article) {
+        DeleteActionDialogFragment.newInstance({ viewModel.deleteArticle(article) }, {})
+            .show(childFragmentManager, "")
     }
 
     private fun observe() {

@@ -1,6 +1,7 @@
 package com.example.appnews.presentation
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -23,6 +24,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     }
 
     private var onItemClickListener: (Article) -> Unit = {}
+    private var onItemLongClickListener: (Article) -> Unit = {}
 
     val differ = AsyncListDiffer(this, callback)
 
@@ -45,6 +47,10 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
         onItemClickListener = listener
     }
 
+    fun setOnLongClickListener(listener: (Article) -> Unit) {
+        onItemLongClickListener = listener
+    }
+
     inner class NewsViewHolder(private val binding: NewsListItemBinding) :
         ViewHolder(binding.root) {
         fun bind(article: Article) {
@@ -60,6 +66,11 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
                 root.setOnClickListener {
                     onItemClickListener.invoke(article)
+                }
+
+                root.setOnLongClickListener {
+                    onItemLongClickListener.invoke(article)
+                    true
                 }
             }
         }

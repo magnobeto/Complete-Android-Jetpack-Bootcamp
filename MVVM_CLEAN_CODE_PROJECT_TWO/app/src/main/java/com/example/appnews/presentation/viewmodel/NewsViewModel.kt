@@ -6,14 +6,9 @@ import com.example.appnews.data.model.APIResponse
 import com.example.appnews.data.model.Article
 import com.example.appnews.data.util.NetworkUtils
 import com.example.appnews.data.util.Resource
-import com.example.appnews.domain.usecase.GetNewsHeadlinesUseCase
-import com.example.appnews.domain.usecase.GetSavedNewsUseCase
-import com.example.appnews.domain.usecase.GetSearchedNewsUseCase
-import com.example.appnews.domain.usecase.SaveNewsUseCase
+import com.example.appnews.domain.usecase.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -23,7 +18,8 @@ class NewsViewModel @Inject constructor(
     private val getNewsHeadlinesUseCase: GetNewsHeadlinesUseCase,
     private val getSearchedNewsUseCase: GetSearchedNewsUseCase,
     private val saveNewsUseCase: SaveNewsUseCase,
-    private val getSavedNewsUseCase: GetSavedNewsUseCase
+    private val getSavedNewsUseCase: GetSavedNewsUseCase,
+    private val deleteSavedNewsUseCase: DeleteSavedNewsUseCase
 ) : AndroidViewModel(application) {
 
     private val newsHeadlinesLV = MutableLiveData<Resource<APIResponse>>()
@@ -64,6 +60,11 @@ class NewsViewModel @Inject constructor(
     fun saveArticle(article: Article) =
         viewModelScope.launch(Dispatchers.IO) {
             saveNewsUseCase.execute(article)
+        }
+
+    fun deleteArticle(article: Article) =
+        viewModelScope.launch(Dispatchers.IO) {
+            deleteSavedNewsUseCase.execute(article)
         }
 
     fun getSavedArtiles() = liveData {

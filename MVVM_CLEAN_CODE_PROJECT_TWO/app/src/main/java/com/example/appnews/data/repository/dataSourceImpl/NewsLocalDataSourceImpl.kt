@@ -7,5 +7,6 @@ import kotlinx.coroutines.flow.Flow
 
 class NewsLocalDataSourceImpl(private val articleDAO: ArticleDAO) : NewsLocalDataSource {
     override suspend fun saveNews(article: Article) = articleDAO.insertArticle(article)
+    override suspend fun deleteNews(article: Article) = articleDAO.deleteArticle(article)
     override fun getAllSaveNews(): Flow<List<Article>> = articleDAO.getAllSavedArticles()
 }
