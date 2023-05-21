@@ -59,13 +59,17 @@ class SavedNewsFragment : Fragment() {
     private fun setupDialogFragment(article: Article) {
         DeleteActionDialogFragment.newInstance(
             { viewModel.deleteArticle(article) },
-            { setupSnackBar() }
+            { setupSnackBar(article) }
         ).show(childFragmentManager, "DeleteDialog")
     }
 
-    private fun setupSnackBar() {
+    private fun setupSnackBar(article: Article) {
         view?.let { view ->
-            Snackbar.make(view, "Deleted successfully", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(view, "Deleted successfully", Snackbar.LENGTH_LONG).apply {
+                setAction("Undo") {
+                    viewModel.saveArticle(article)
+                }
+            }.show()
         }
     }
 
