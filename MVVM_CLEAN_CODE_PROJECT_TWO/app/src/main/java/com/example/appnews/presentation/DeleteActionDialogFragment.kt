@@ -8,13 +8,16 @@ import androidx.fragment.app.DialogFragment
 class DeleteActionDialogFragment : DialogFragment() {
 
     private var deleteAction: () -> Unit = {}
+    private var snackBarAction: () -> Unit = {}
 
     companion object {
         fun newInstance(
-            deleteAction: () -> Unit
+            deleteAction: () -> Unit,
+            snackBarAction: () -> Unit
         ): DeleteActionDialogFragment {
             DeleteActionDialogFragment().apply {
                 this.deleteAction = deleteAction
+                this.snackBarAction = snackBarAction
                 return this
             }
         }
@@ -28,6 +31,7 @@ class DeleteActionDialogFragment : DialogFragment() {
                     "yes"
                 ) { dialog, id ->
                     deleteAction.invoke()
+                    snackBarAction.invoke()
                 }
                 .setNegativeButton(
                     "cancel"
