@@ -8,16 +8,13 @@ import androidx.fragment.app.DialogFragment
 class DeleteActionDialogFragment : DialogFragment() {
 
     private var deleteAction: () -> Unit = {}
-    private var cancelAction: () -> Unit = {}
 
     companion object {
         fun newInstance(
-            deleteAction: () -> Unit,
-            cancelAction: () -> Unit
+            deleteAction: () -> Unit
         ): DeleteActionDialogFragment {
             DeleteActionDialogFragment().apply {
                 this.deleteAction = deleteAction
-                this.cancelAction = cancelAction
                 return this
             }
         }
@@ -34,9 +31,7 @@ class DeleteActionDialogFragment : DialogFragment() {
                 }
                 .setNegativeButton(
                     "cancel"
-                ) { dialog, id ->
-                    cancelAction.invoke()
-                }
+                ) { dialog, id -> }
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
     }

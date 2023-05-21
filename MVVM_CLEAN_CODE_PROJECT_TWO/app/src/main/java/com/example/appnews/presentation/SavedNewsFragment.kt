@@ -59,8 +59,8 @@ class SavedNewsFragment : Fragment() {
     }
 
     private fun setupDialogFragment(article: Article) {
-        DeleteActionDialogFragment.newInstance({ viewModel.deleteArticle(article) }, {})
-            .show(childFragmentManager, "")
+        DeleteActionDialogFragment.newInstance { viewModel.deleteArticle(article) }
+            .show(childFragmentManager, "DeleteDialog")
     }
 
     private fun observe() {
