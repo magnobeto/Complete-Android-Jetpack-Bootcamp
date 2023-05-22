@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             DisplayTvShows {
-                Toast.makeText(this, it.name, Toast.LENGTH_SHORT).show()
+                startActivity(InfoActivity.intent(this, it))
             }
         }
     }
