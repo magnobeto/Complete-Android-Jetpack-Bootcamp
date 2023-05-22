@@ -112,66 +112,6 @@ fun DisplayTvShows(selectItem: (TvShow) -> Unit) {
     }
 }
 
-@Composable
-fun TvShowListItem(tvShow: TvShow, selectItem: (TvShow) -> Unit) {
-    Card(
-        modifier = Modifier
-            .padding(10.dp)
-            .fillMaxWidth(),
-        elevation = 10.dp,
-        shape = RoundedCornerShape(corner = CornerSize(10.dp))
-    ) {
-        Row(
-            modifier = Modifier
-                .padding(5.dp)
-                .fillMaxWidth()
-                .clickable { selectItem(tvShow) },
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            TvShowImage(tvShow = tvShow)
-            Column {
-                Text(text = tvShow.name, style = MaterialTheme.typography.h5)
-                Spacer(modifier = Modifier.height(4.dp))
-                Text(
-                    text = tvShow.overview,
-                    style = MaterialTheme.typography.body1,
-                    maxLines = 3,
-                    overflow = TextOverflow.Ellipsis
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(
-                        text = tvShow.year.toString(),
-                        style = MaterialTheme.typography.h5
-                    )
-                    Text(
-                        text = tvShow.rating.toString(),
-                        style = MaterialTheme.typography.h5
-                    )
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun TvShowImage(tvShow: TvShow) {
-    Image(
-        painter = painterResource(id = tvShow.imageId),
-        contentDescription = null,
-        contentScale = ContentScale.Crop,
-        modifier = Modifier
-            .padding(4.dp)
-            .height(140.dp)
-            .width(100.dp)
-            .clip(RoundedCornerShape(corner = CornerSize(10.dp)))
-    )
-}
-
-
 // Setup to preview items
 @Preview(showBackground = true)
 @Composable
