@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
@@ -23,14 +24,13 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ScrollableColumnDemo1()
+            LazyColumnDemo()
         }
     }
 }
 
-@Preview(showBackground = true)
 @Composable
-fun ScrollableColumnDemo1() {
+fun ScrollableColumnDemo() {
     // Equivalent to ListView, not ideal for large amount of items
     val scrollState = rememberScrollState()
     Column(
@@ -39,6 +39,21 @@ fun ScrollableColumnDemo1() {
         for (i in 1..100) {
             Text(
                 text = "User Name: $i",
+                style = MaterialTheme.typography.h3,
+                modifier = Modifier.padding(10.dp)
+            )
+            Divider(color = Color.Black, thickness = 5.dp)
+        }
+    }
+}
+
+@Composable
+fun LazyColumnDemo() {
+    // Equivalent to Recyclerview, much better to optimize performance
+    LazyColumn {
+        items(100) {
+            Text(
+                text = "User Name: $it",
                 style = MaterialTheme.typography.h3,
                 modifier = Modifier.padding(10.dp)
             )
