@@ -20,18 +20,24 @@ class MainActivity : AppCompatActivity() {
             tvCount.text = count++.toString()
         }
         btnDownloadUserData.setOnClickListener {
-
-            CoroutineScope(Dispatchers.IO).launch {
-                downloadUserData()
-            }
+              downloadUserData()
+//            CoroutineScope(Dispatchers.IO).launch {
+//                downloadUserData()
+//            }
         }
     }
 
-    private suspend fun downloadUserData() {
+    private fun downloadUserData() {
         for (i in 1..200000) {
-            withContext(Dispatchers.Main) {
-                tvUserMessage.text = "Downloading user $i in ${Thread.currentThread().name}"
-            }
+            tvUserMessage.text = "Downloading user $i in ${Thread.currentThread().name}"
         }
     }
+
+//    private suspend fun downloadUserData() {
+//        for (i in 1..200000) {
+//            withContext(Dispatchers.Main) {
+//                tvUserMessage.text = "Downloading user $i in ${Thread.currentThread().name}"
+//            }
+//        }
+//    }
 }
