@@ -26,7 +26,8 @@ class MainActivity : ComponentActivity() {
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    MyButton()
+                    var count by remember { mutableStateOf(0) }
+                    MyButton(count) { count += 1 }
                 }
             }
         }
@@ -34,14 +35,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyButton() {
-    val context = LocalContext.current
-    var count by remember { mutableStateOf(0) }
-
+fun MyButton(currentCount: Int, updateCount: (Int) -> Unit) {
     Button(
         onClick = {
-            count+=1
-            Toast.makeText(context, "Count is : $count", Toast.LENGTH_SHORT).show()
+            updateCount(currentCount)
         },
         contentPadding = PaddingValues(16.dp),
         border = BorderStroke(10.dp, Color.Black),
@@ -51,23 +48,9 @@ fun MyButton() {
         )
     ) {
         Text(
-            "Count is : $count",
+            "Count is : $currentCount",
             style = MaterialTheme.typography.h3,
             modifier = Modifier.padding(5.dp)
         )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun AppProjectPreview() {
-    ComposeStateDemoTheme {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            MyButton()
-        }
     }
 }
