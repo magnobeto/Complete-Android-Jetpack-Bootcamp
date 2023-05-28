@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -34,11 +35,11 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-var count = mutableStateOf(0)
-
 @Composable
 fun MyButton() {
     val context = LocalContext.current
+    val count = remember { mutableStateOf(0) }
+
     Button(
         onClick = {
             count.value++
