@@ -1,6 +1,7 @@
 package com.anushka.livedatademo
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -37,6 +38,11 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launchWhenCreated {
             viewModel.totalSum.collect { totalSum ->
                 binding.totalSum.text = totalSum.toString()
+            }
+        }
+        lifecycleScope.launchWhenCreated {
+            viewModel.message.collect { message ->
+                Toast.makeText(this@MainActivity, message, Toast.LENGTH_LONG).show()
             }
         }
     }
