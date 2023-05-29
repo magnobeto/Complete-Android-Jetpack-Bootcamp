@@ -1,19 +1,18 @@
 package com.anushka.livedatademo
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 
 class MainActivityViewModel(startingValue: Int): ViewModel() {
-    
-    private var totalSumLV = MutableLiveData<Int>()
-    val totalSum: LiveData<Int> = totalSumLV
+
+    private var _totalSum = MutableStateFlow<Int>(0)
+    val totalSum = _totalSum
 
     init {
-        totalSumLV.value = startingValue
+        _totalSum.value = startingValue
     }
 
     fun sumNumberInput(number: Int) {
-        totalSumLV.value = totalSumLV.value?.plus(number)
+        _totalSum.value = _totalSum.value.plus(number)
     }
 }

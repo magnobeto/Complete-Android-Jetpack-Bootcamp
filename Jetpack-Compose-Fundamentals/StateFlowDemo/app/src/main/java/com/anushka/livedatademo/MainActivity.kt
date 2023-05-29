@@ -1,11 +1,12 @@
 package com.anushka.livedatademo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.anushka.livedatademo.databinding.ActivityMainBinding
+import kotlinx.coroutines.flow.collect
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         viewModelFactory = MainViewModelActivityFactory(10)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(MainActivityViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory)[MainActivityViewModel::class.java]
 
         setOnClickListener()
         observe()
@@ -33,8 +34,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observe() {
-        viewModel.totalSum.observe(this, Observer { totalSum ->
-            binding.totalSum.text = totalSum.toString()
-        })
+        lifecycleScope.launchWhenCreated {
+            viewModel.totalSum.collect { totalSum ->
+                binding.totalSum.text = totalSum.toString()
+            }
+        }
     }
 }
