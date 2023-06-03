@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import com.example.unitconverter.Conversion
+import com.example.unitconverter.data.Conversion
 
 @Composable
 fun TopScreen(list: List<Conversion>) {
