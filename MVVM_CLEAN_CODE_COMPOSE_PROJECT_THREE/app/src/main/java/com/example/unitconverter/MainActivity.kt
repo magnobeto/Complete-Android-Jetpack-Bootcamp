@@ -28,3 +28,17 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+@Preview
+@Composable
+fun Preview() {
+    UnitConverterTheme {
+        // A surface container using the 'background' color from the theme
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colors.background
+        ) {
+            BaseScreen()
+        }
+    }
+}
