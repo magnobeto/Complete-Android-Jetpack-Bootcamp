@@ -19,13 +19,17 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.toSize
 
 @Composable
-fun ConversionMenu(list: List<Conversion>, modifier: Modifier = Modifier){
+fun ConversionMenu(
+    list: List<Conversion>,
+    modifier: Modifier = Modifier,
+    convert: (Conversion) -> Unit
+) {
 
-    var displayingText by remember{ mutableStateOf("Select the conversion type")}
-    var textFieldSize by remember{mutableStateOf(Size.Zero)} //To assign the dropdown the same width as TextField.
-    var expanded by remember { mutableStateOf(false)}
+    var displayingText by remember { mutableStateOf("Select the conversion type") }
+    var textFieldSize by remember { mutableStateOf(Size.Zero) } //To assign the dropdown the same width as TextField.
+    var expanded by remember { mutableStateOf(false) }
 
-    val icon = if(expanded)
+    val icon = if (expanded)
         Icons.Filled.KeyboardArrowUp
     else
         Icons.Filled.KeyboardArrowDown
@@ -57,6 +61,7 @@ fun ConversionMenu(list: List<Conversion>, modifier: Modifier = Modifier){
             list.forEach { conversion ->
                 DropdownMenuItem(onClick = {
                     displayingText = conversion.description
+                    convert.invoke(conversion)
                     expanded = false
                 }) {
                     Text(
