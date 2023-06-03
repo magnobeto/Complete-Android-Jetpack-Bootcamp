@@ -28,10 +28,11 @@ fun TopScreen(list: List<Conversion>) {
         val multiply = selectedConversion.value!!.multiplyBy
         val result = input*multiply
 
-        //rounding off the result to 4 decimal places
-        val df = DecimalFormat("#.####")
-        df.roundingMode = RoundingMode.DOWN
-        val roundedResult = df.format(result)
+//        //rounding off the result to 4 decimal places
+//        val df = DecimalFormat("#.####")
+//        df.roundingMode = RoundingMode.DOWN
+//        val roundedResult = df.format(result)
+        val roundedResult = String.format("%.3f", result)
 
         val message1 = "${typedValue.value} ${selectedConversion.value!!.convertFrom} is equal to"
         val message2 = "$roundedResult ${selectedConversion.value!!.convertTo}"
