@@ -1,11 +1,12 @@
-package com.example.unitconverter
+package com.example.unitconverter.compose
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import java.math.RoundingMode
-import java.text.DecimalFormat
+import com.example.unitconverter.Conversion
+import com.example.unitconverter.ConversionMenu
+import com.example.unitconverter.InputBlock
 
 @Composable
 fun TopScreen(list: List<Conversion>) {
