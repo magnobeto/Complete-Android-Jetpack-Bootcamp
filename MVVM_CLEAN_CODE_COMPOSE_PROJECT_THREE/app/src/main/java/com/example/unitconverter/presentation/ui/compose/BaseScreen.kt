@@ -20,14 +20,16 @@ fun BaseScreen(
 ) {
     val list = converterViewModel.getConversions()
     val historyList = converterViewModel.resultList.collectAsState(initial = emptyList())
-    
+
     Column(modifier = modifier.padding(30.dp)) {
         TopScreen(list) { message1, message2 ->
             converterViewModel.addResult(message1, message2)
         }
         Spacer(modifier = modifier.height(20.dp))
-        HistoryScreen(historyList) { conversionResult ->
-            converterViewModel.deleteResult(conversionResult)
-        }
+        HistoryScreen(
+            historyList,
+            { conversionResult -> converterViewModel.deleteResult(conversionResult) },
+            { converterViewModel.deleteAllResults() }
+        )
     }
 }
