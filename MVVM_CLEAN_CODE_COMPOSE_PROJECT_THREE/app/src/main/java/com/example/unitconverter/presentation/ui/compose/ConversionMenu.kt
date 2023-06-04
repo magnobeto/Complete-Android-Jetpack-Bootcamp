@@ -15,6 +15,7 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.toSize
 import com.example.unitconverter.data.model.Conversion
@@ -74,4 +75,20 @@ fun ConversionMenu(
             }
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ConversionMenuPreview() {
+    ConversionMenu(
+        listOf(
+            Conversion(
+                0,
+                "example",
+                "id",
+                "example",
+                30.00
+            )
+        )
+    ) { }
 }

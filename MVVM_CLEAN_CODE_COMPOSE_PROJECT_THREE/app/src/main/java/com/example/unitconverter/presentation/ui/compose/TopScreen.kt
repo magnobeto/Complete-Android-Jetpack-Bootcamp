@@ -4,7 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.unitconverter.data.model.Conversion
+import com.example.unitconverter.presentation.ui.viewmodel.ConverterViewModel
 
 @Composable
 fun TopScreen(list: List<Conversion>, saveAction: (String, String) -> Unit) {
@@ -39,4 +42,20 @@ fun TopScreen(list: List<Conversion>, saveAction: (String, String) -> Unit) {
         saveAction(message1, message2)
         ResultBlock(message1 = message1, message2 = message2)
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TopScreenPreview() {
+    TopScreen(
+        listOf(
+            Conversion(
+                0,
+                "example",
+                "id",
+                "example",
+                30.00
+            )
+        )
+    ) { message1, message2 -> }
 }
