@@ -1,4 +1,4 @@
-package com.example.unitconverter
+package com.example.unitconverter.presentation
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

@@ -1,6 +1,6 @@
-package com.example.unitconverter.data
+package com.example.unitconverter.data.repository
 
-import com.example.unitconverter.data.ConversionResult
+import com.example.unitconverter.data.model.ConversionResult
 import kotlinx.coroutines.flow.Flow
 
 interface ConverterRepository {

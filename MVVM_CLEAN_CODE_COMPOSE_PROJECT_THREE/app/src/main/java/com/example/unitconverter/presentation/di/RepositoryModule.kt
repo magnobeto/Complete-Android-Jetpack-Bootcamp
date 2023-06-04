@@ -1,8 +1,8 @@
-package com.example.unitconverter.di
+package com.example.unitconverter.presentation.di
 
-import com.example.unitconverter.data.ConverterDAO
-import com.example.unitconverter.data.ConverterRepository
-import com.example.unitconverter.data.ConverterRepositoryImpl
+import com.example.unitconverter.data.db.ConverterDAO
+import com.example.unitconverter.data.repository.ConverterRepository
+import com.example.unitconverter.data.repository.ConverterRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.example.unitconverter.data
+package com.example.unitconverter.data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

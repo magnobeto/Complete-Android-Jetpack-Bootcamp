@@ -1,4 +1,4 @@
-package com.example.unitconverter
+package com.example.unitconverter.presentation.ui.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.example.unitconverter.compose.BaseScreen
-import com.example.unitconverter.ui.theme.UnitConverterTheme
+import com.example.unitconverter.presentation.ui.compose.BaseScreen
+import com.example.unitconverter.presentation.ui.theme.UnitConverterTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

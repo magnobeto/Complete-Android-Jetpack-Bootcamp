@@ -1,10 +1,10 @@
-package com.example.unitconverter.data
+package com.example.unitconverter.data.db
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.unitconverter.data.ConversionResult
+import com.example.unitconverter.data.model.ConversionResult
 import kotlinx.coroutines.flow.Flow
 
 @Dao

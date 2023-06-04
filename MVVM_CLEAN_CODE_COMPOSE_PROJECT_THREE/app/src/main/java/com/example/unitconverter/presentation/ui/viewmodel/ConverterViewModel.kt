@@ -1,8 +1,8 @@
-package com.example.unitconverter
+package com.example.unitconverter.presentation.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.unitconverter.data.Conversion
-import com.example.unitconverter.data.ConverterRepository
+import com.example.unitconverter.data.model.Conversion
+import com.example.unitconverter.data.repository.ConverterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

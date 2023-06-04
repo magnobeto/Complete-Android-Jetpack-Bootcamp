@@ -1,9 +1,9 @@
-package com.example.unitconverter.di
+package com.example.unitconverter.presentation.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.unitconverter.data.ConverterDAO
-import com.example.unitconverter.data.ConverterDatabase
+import com.example.unitconverter.data.db.ConverterDAO
+import com.example.unitconverter.data.db.ConverterDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

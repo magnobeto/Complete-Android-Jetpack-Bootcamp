@@ -1,4 +1,4 @@
-package com.example.unitconverter.compose
+package com.example.unitconverter.presentation.ui.compose
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -17,7 +17,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.toSize
-import com.example.unitconverter.data.Conversion
+import com.example.unitconverter.data.model.Conversion
 
 @Composable
 fun ConversionMenu(

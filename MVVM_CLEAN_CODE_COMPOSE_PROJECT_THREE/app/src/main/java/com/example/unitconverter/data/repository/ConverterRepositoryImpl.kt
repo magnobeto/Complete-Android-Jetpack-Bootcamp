@@ -1,5 +1,7 @@
-package com.example.unitconverter.data
+package com.example.unitconverter.data.repository
 
+import com.example.unitconverter.data.db.ConverterDAO
+import com.example.unitconverter.data.model.ConversionResult
 import kotlinx.coroutines.flow.Flow
 
 class ConverterRepositoryImpl(private val dao : ConverterDAO) : ConverterRepository {

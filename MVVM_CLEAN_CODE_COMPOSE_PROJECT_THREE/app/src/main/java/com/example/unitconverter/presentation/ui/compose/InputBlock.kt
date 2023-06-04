@@ -1,4 +1,4 @@
-package com.example.unitconverter.compose
+package com.example.unitconverter.presentation.ui.compose
 
 import android.content.Context
 import android.widget.Toast
@@ -16,7 +16,7 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.unitconverter.data.Conversion
+import com.example.unitconverter.data.model.Conversion
 
 @Composable
 fun InputBlock(
