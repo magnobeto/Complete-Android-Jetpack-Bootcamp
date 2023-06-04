@@ -3,15 +3,18 @@ package com.example.unitconverter.presentation.ui.compose.converter
 import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardCapitalization
@@ -21,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.unitconverter.data.model.Conversion
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun InputBlock(
     conversion: Conversion,
@@ -29,6 +33,8 @@ fun InputBlock(
     context: Context = LocalContext.current,
     calculate: (String) -> Unit
 ) {
+    val keyboardController = LocalSoftwareKeyboardController.current
+
     Column(modifier = modifier.padding(top = 20.dp)) {
         Row(modifier = modifier.fillMaxWidth()) {
             TextField(
@@ -42,6 +48,13 @@ fun InputBlock(
                     autoCorrect = true,
                     keyboardType = KeyboardType.Number
                 ),
+                keyboardActions = KeyboardActions(
+                    onDone = {
+                        clickOnBtn(context, inputText, calculate)
+                        keyboardController?.hide()
+                    }
+                ),
+                singleLine = true,
                 colors = TextFieldDefaults.textFieldColors(
                     backgroundColor = MaterialTheme.colors.surface.copy(alpha = 0.3F)
                 ),
@@ -60,11 +73,8 @@ fun InputBlock(
 
         OutlinedButton(
             onClick = {
-                if (inputText.value.isNotEmpty()) {
-                    calculate.invoke(inputText.value)
-                } else {
-                    Toast.makeText(context, "Please enter your value", Toast.LENGTH_SHORT).show()
-                }
+                clickOnBtn(context, inputText, calculate)
+                keyboardController?.hide()
             },
             modifier = modifier.fillMaxWidth()
         ) {
@@ -75,6 +85,18 @@ fun InputBlock(
                 color = Color.Blue
             )
         }
+    }
+}
+
+private fun clickOnBtn(
+    context: Context,
+    inputText: MutableState<String>,
+    calculate: (String) -> Unit,
+) {
+    if (inputText.value.isNotEmpty()) {
+        calculate.invoke(inputText.value)
+    } else {
+        Toast.makeText(context, "Please enter your value", Toast.LENGTH_SHORT).show()
     }
 }
 
