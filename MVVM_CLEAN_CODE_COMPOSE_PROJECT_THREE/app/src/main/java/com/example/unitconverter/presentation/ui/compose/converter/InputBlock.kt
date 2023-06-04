@@ -29,7 +29,7 @@ fun InputBlock(
     context: Context = LocalContext.current,
     calculate: (String) -> Unit
 ) {
-    Column(modifier = modifier.padding(0.dp, 20.dp, 0.dp, 0.dp)) {
+    Column(modifier = modifier.padding(top = 20.dp)) {
         Row(modifier = modifier.fillMaxWidth()) {
             TextField(
                 value = inputText.value,
@@ -51,7 +51,7 @@ fun InputBlock(
                 text = conversion.convertFrom,
                 fontSize = 24.sp,
                 modifier = modifier
-                    .padding(10.dp, 30.dp, 0.dp, 0.dp)
+                    .padding(start = 10.dp, top = 30.dp)
                     .fillMaxWidth(0.35F)
             )
         }
