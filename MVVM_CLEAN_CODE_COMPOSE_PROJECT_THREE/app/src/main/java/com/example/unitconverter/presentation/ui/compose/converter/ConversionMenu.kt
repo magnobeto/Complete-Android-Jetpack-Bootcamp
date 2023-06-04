@@ -1,9 +1,11 @@
 package com.example.unitconverter.presentation.ui.compose.converter
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.interaction.Interaction
+import androidx.compose.foundation.interaction.InteractionSource
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -19,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.toSize
 import com.example.unitconverter.data.model.Conversion
+import kotlinx.coroutines.flow.Flow
 
 @Composable
 fun ConversionMenu(
@@ -30,15 +33,22 @@ fun ConversionMenu(
     var displayingText by remember { mutableStateOf("Select the conversion type") }
     var textFieldSize by remember { mutableStateOf(Size.Zero) } //To assign the dropdown the same width as TextField.
     var expanded by remember { mutableStateOf(false) }
+    val interactionSource = remember { MutableInteractionSource() }
+    val isPressed: Boolean by interactionSource.collectIsPressedAsState()
 
     val icon = if (expanded)
         Icons.Filled.KeyboardArrowUp
     else
         Icons.Filled.KeyboardArrowDown
 
+    if (isPressed) {
+        expanded = true
+    }
+
     Column {
         OutlinedTextField(
             value = displayingText,
+            interactionSource = interactionSource,
             onValueChange = { displayingText = it },
             textStyle = TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold),
             modifier = modifier
