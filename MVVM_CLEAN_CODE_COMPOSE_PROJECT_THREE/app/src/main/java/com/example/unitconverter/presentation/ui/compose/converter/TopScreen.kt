@@ -1,17 +1,19 @@
 package com.example.unitconverter.presentation.ui.compose.converter
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.unitconverter.data.model.Conversion
 
 @Composable
-fun TopScreen(list: List<Conversion>, saveAction: (String, String) -> Unit) {
-    val selectedConversion: MutableState<Conversion?> = remember { mutableStateOf(null) }
-    val inputText: MutableState<String> = remember { mutableStateOf("") }
-    val typedValue = remember { mutableStateOf("0.0") }
+fun TopScreen(
+    list: List<Conversion>,
+    selectedConversion: MutableState<Conversion?>,
+    inputText: MutableState<String>,
+    typedValue: MutableState<String>,
+    saveAction: (String, String) -> Unit
+) {
+
+    var toSave by remember { mutableStateOf(false) }
 
     ConversionMenu(list = list) {
         selectedConversion.value = it
@@ -21,6 +23,7 @@ fun TopScreen(list: List<Conversion>, saveAction: (String, String) -> Unit) {
     selectedConversion.value?.let {
         InputBlock(conversion = it, inputText = inputText) { input ->
             typedValue.value = input
+            toSave = true
         }
     }
 
@@ -37,23 +40,10 @@ fun TopScreen(list: List<Conversion>, saveAction: (String, String) -> Unit) {
 
         val message1 = "${typedValue.value} ${selectedConversion.value!!.convertFrom} is equal to"
         val message2 = "$roundedResult ${selectedConversion.value!!.convertTo}"
-        saveAction(message1, message2)
+        if (toSave) {
+            saveAction(message1, message2)
+            toSave = false
+        }
         ResultBlock(message1 = message1, message2 = message2)
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun TopScreenPreview() {
-    TopScreen(
-        listOf(
-            Conversion(
-                0,
-                "example",
-                "id",
-                "example",
-                30.00
-            )
-        )
-    ) { message1, message2 -> }
 }
