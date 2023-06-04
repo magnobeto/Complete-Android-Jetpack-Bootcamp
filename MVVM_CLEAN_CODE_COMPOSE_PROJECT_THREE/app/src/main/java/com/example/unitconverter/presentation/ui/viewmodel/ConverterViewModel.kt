@@ -1,9 +1,13 @@
 package com.example.unitconverter.presentation.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.unitconverter.data.model.Conversion
+import com.example.unitconverter.data.model.ConversionResult
 import com.example.unitconverter.data.repository.ConverterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -32,4 +36,7 @@ class ConverterViewModel @Inject constructor(
         Conversion(6, "Kilometers to Miles", "km", "mi", 0.621371)
     )
 
+    fun addResult(message1: String, message2: String) = viewModelScope.launch(Dispatchers.IO) {
+        converterRepository.insertResult(ConversionResult(0, message1, message2))
+    }
 }
