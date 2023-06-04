@@ -16,19 +16,24 @@ class ConverterViewModel @Inject constructor(
     private val converterRepository: ConverterRepository
 ) : ViewModel() {
 
+    val resultList = converterRepository.getSavedResults()
     fun getConversions() = conversionsList()
 
-    fun addResult(message1: String, message2: String) = viewModelScope.launch(Dispatchers.IO) {
-        converterRepository.insertResult(ConversionResult(0, message1, message2))
+    fun addResult(message1: String, message2: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            converterRepository.insertResult(ConversionResult(0, message1, message2))
+        }
     }
 
-    fun deleteResult(result: ConversionResult) = viewModelScope.launch(Dispatchers.IO) {
-        converterRepository.deleteResult(result)
+    fun deleteResult(result: ConversionResult) {
+        viewModelScope.launch(Dispatchers.IO) {
+            converterRepository.deleteResult(result)
+        }
     }
 
-    fun deleteAllResults() = viewModelScope.launch(Dispatchers.IO) {
-        converterRepository.deleteAllResults()
+    fun deleteAllResults() {
+        viewModelScope.launch(Dispatchers.IO) {
+            converterRepository.deleteAllResults()
+        }
     }
-
-    fun getSavedResults() = flow<List<ConversionResult>> { converterRepository.getSavedResults() }
 }

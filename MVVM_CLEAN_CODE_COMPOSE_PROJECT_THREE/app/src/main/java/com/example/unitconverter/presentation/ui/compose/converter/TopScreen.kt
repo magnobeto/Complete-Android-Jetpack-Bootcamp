@@ -1,13 +1,11 @@
-package com.example.unitconverter.presentation.ui.compose
+package com.example.unitconverter.presentation.ui.compose.converter
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.unitconverter.data.model.Conversion
-import com.example.unitconverter.presentation.ui.viewmodel.ConverterViewModel
 
 @Composable
 fun TopScreen(list: List<Conversion>, saveAction: (String, String) -> Unit) {
