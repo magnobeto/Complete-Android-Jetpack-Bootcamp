@@ -19,6 +19,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.anushka.effectsdemo1.ui.theme.EffectsDemo1Theme
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,64 +49,70 @@ fun MainScreen(
     var input by remember { mutableStateOf("") }
 
     val scaffoldState : ScaffoldState = rememberScaffoldState()
+    val coroutineScope : CoroutineScope = rememberCoroutineScope()
 
     Scaffold(scaffoldState = scaffoldState) {
 
-   LaunchedEffect(key1 = round ,  ){
-       // Toast.makeText(context,"Please, start counting round $round",Toast.LENGTH_SHORT).show()
-        scaffoldState.snackbarHostState.showSnackbar(
-            message = "Please, start counting round $round",
-            duration = SnackbarDuration.Short
-        )
-   }
+//   LaunchedEffect(key1 = round ,  ){
+//       // Toast.makeText(context,"Please, start counting round $round",Toast.LENGTH_SHORT).show()
+//        scaffoldState.snackbarHostState.showSnackbar(
+//            message = "Please, start counting round $round",
+//            duration = SnackbarDuration.Short
+//        )
+//   }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(50.dp),
-        verticalArrangement = Arrangement.SpaceEvenly
-    ) {
-        Text(
-            modifier = modifier.fillMaxWidth(),
-            text = "Total is ${total.toString()}",
-            fontWeight = FontWeight.Bold,
-            fontSize = 30.sp,
-            color = Color.DarkGray
-        )
-        OutlinedTextField(
-            modifier = modifier.fillMaxWidth(),
-            placeholder = { Text("Enter value here") },
-            value = input,
-            onValueChange = {
-                input = it
-            },
-            textStyle = TextStyle(
-                color = Color.LightGray,
-                fontSize = 30.sp,
-                fontWeight = FontWeight.Bold
-            ),
-            label = { Text(text = "New count") },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
-        )
-
-        Button(
-            modifier = modifier.fillMaxWidth(),
-            onClick = {
-                total += input.toDouble()
-                if(total>300){
-                    total = 0.0
-                    input = ""
-                    round++
-                }
-            }
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(50.dp),
+            verticalArrangement = Arrangement.SpaceEvenly
         ) {
             Text(
-                text = "Count",
+                modifier = modifier.fillMaxWidth(),
+                text = "Total is ${total.toString()}",
+                fontWeight = FontWeight.Bold,
                 fontSize = 30.sp,
-                fontWeight = FontWeight.Bold
+                color = Color.DarkGray
             )
+            OutlinedTextField(
+                modifier = modifier.fillMaxWidth(),
+                placeholder = { Text("Enter value here") },
+                value = input,
+                onValueChange = {
+                    input = it
+                },
+                textStyle = TextStyle(
+                    color = Color.LightGray,
+                    fontSize = 30.sp,
+                    fontWeight = FontWeight.Bold
+                ),
+                label = { Text(text = "New count") },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+            )
+
+            Button(
+                modifier = modifier.fillMaxWidth(),
+                onClick = {
+                    total += input.toDouble()
+                    coroutineScope.launch {
+                        scaffoldState.snackbarHostState.showSnackbar(
+                            message = "Count updated",
+                            duration = SnackbarDuration.Short
+                        )
+                    }
+                    if(total>300){
+                        total = 0.0
+                        input = ""
+                        round++
+                    }
+                }
+            ) {
+                Text(
+                    text = "Count",
+                    fontSize = 30.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
         }
     }
-    }
 }
-
